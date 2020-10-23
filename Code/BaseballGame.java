@@ -609,7 +609,7 @@ public class BaseballGame{
                case 6:
                   GUI.setTfPreviousPlayResult("Home Run!");
                   result = PlayResult.HOMER;
-                  numRunsThisPlay--; //Dont count the batter to the RBIs
+                  //numRunsThisPlay--; //Dont count the batter to the RBIs
                   if(BaseballGame.getHalfInning() % 2 ==0){
                      BaseballGame.homeRun(getHomeTeam().getPreviousBatter());                  
                   }
