@@ -20,6 +20,11 @@ import javax.swing.border.MatteBorder;
 import java.awt.Color;
 import javax.swing.border.SoftBevelBorder;
 import javax.swing.border.BevelBorder;
+import java.awt.Button;
+import javax.swing.JPopupMenu;
+import java.awt.Component;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 public class GUI{
 
 	public JTextField getTfAwayInning1() {
@@ -937,6 +942,8 @@ public class GUI{
 	private static JLabel lblAwayScore;
 	private static JButton btnStartGame;
 	private static JButton btnNextPlay;
+	private JButton btnNewButton;
+	private JPopupMenu popupMenu;
 	
 	public GUI() {
 		initialize();
@@ -1185,26 +1192,37 @@ public class GUI{
 		tfHomeRuns.setBounds(589, 137, 28, 25);
 		scoreboardPanel.add(tfHomeRuns);
 		
-		JButton btnStartGame = new JButton("Start Game!");
+		JButton btnStartGame = new JButton("Start New Game");
 		
-		btnStartGame.setBounds(1414, 23, 136, 37);
+		btnStartGame.setBounds(1414, 62, 136, 37);
 		scoreboardPanel.add(btnStartGame);
 		
-		JButton btnNextPlay = new JButton("Next Play!");
-		btnNextPlay.setEnabled(false);
+		JButton btnMenu = new JButton("Menu");
+		btnMenu.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnMenu.setBounds(1414, 18, 136, 37);
+		scoreboardPanel.add(btnMenu);
 		
-		btnNextPlay.setBounds(1414, 120, 136, 37);
-		scoreboardPanel.add(btnNextPlay);
+		JPopupMenu popupMenu = new JPopupMenu();
 		
-		JLabel lblStartGame = new JLabel("Start a new game!");
-		lblStartGame.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		lblStartGame.setBounds(1213, 22, 191, 43);
-		scoreboardPanel.add(lblStartGame);
+
 		
-		JLabel lblRunNextPlay = new JLabel("Run next play!");
-		lblRunNextPlay.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		lblRunNextPlay.setBounds(1248, 117, 136, 43);
-		scoreboardPanel.add(lblRunNextPlay);
+		addPopup(btnMenu, popupMenu);
+		
+		JButton btnNextPlay_1 = new JButton("Run Next Play");
+		btnNextPlay_1.setBounds(1414, 135, 136, 37);
+		scoreboardPanel.add(btnNextPlay_1);
+		btnNextPlay_1.setEnabled(false);
+		
+		btnNextPlay_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				boolean b = nextPlay();
+				btnNextPlay_1.setEnabled(b);
+				
+			}
+		});
 		
 		JPanel boxStatusPanel = new JPanel();
 		boxStatusPanel.setBorder(new SoftBevelBorder(BevelBorder.RAISED, null, null, null, null));
@@ -1260,9 +1278,9 @@ public class GUI{
 		lblThirdBase.setBounds(35, 117, 83, 28);
 		boxStatusPanel.add(lblThirdBase);
 		
-		lblBoxStatus = new JLabel("BoxStatus");
+		lblBoxStatus = new JLabel("Box Status");
 		lblBoxStatus.setFont(new Font("Tahoma", Font.PLAIN, 45));
-		lblBoxStatus.setBounds(10, 11, 234, 52);
+		lblBoxStatus.setBounds(10, 11, 218, 52);
 		boxStatusPanel.add(lblBoxStatus);
 		
 		JPanel previousPlayPanel = new JPanel();
@@ -1271,7 +1289,7 @@ public class GUI{
 		getFrame().getContentPane().add(previousPlayPanel);
 		previousPlayPanel.setLayout(null);
 		
-		JLabel lblPreviousPlay = new JLabel("Previous Play:");
+		JLabel lblPreviousPlay = new JLabel("Current Play:");
 		lblPreviousPlay.setFont(new Font("Tahoma", Font.PLAIN, 45));
 		lblPreviousPlay.setBounds(10, 11, 306, 76);
 		previousPlayPanel.add(lblPreviousPlay);
@@ -1280,36 +1298,36 @@ public class GUI{
 		tfPreviousPlayBatter.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		tfPreviousPlayBatter.setEditable(false);
 		tfPreviousPlayBatter.setColumns(10);
-		tfPreviousPlayBatter.setBounds(407, 97, 168, 30);
+		tfPreviousPlayBatter.setBounds(113, 102, 168, 30);
 		previousPlayPanel.add(tfPreviousPlayBatter);
 		
 		JLabel lblPreviousPlayBatter = new JLabel("Batter:");
 		lblPreviousPlayBatter.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		lblPreviousPlayBatter.setBounds(328, 97, 62, 32);
+		lblPreviousPlayBatter.setBounds(24, 99, 62, 32);
 		previousPlayPanel.add(lblPreviousPlayBatter);
 		
 		JLabel lblPreviousPlayResult = new JLabel("Play:");
 		lblPreviousPlayResult.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		lblPreviousPlayResult.setBounds(346, 146, 44, 32);
+		lblPreviousPlayResult.setBounds(24, 145, 44, 32);
 		previousPlayPanel.add(lblPreviousPlayResult);
 		
 		tfPreviousPlayResult = new JTextField();
 		tfPreviousPlayResult.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		tfPreviousPlayResult.setEditable(false);
 		tfPreviousPlayResult.setColumns(10);
-		tfPreviousPlayResult.setBounds(407, 148, 168, 30);
+		tfPreviousPlayResult.setBounds(113, 148, 168, 30);
 		previousPlayPanel.add(tfPreviousPlayResult);
 		
 		JLabel lblPreviousPlayOuts = new JLabel("Outs:");
 		lblPreviousPlayOuts.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		lblPreviousPlayOuts.setBounds(342, 189, 48, 32);
+		lblPreviousPlayOuts.setBounds(24, 186, 48, 32);
 		previousPlayPanel.add(lblPreviousPlayOuts);
 		
 		tfPreviousPlayOuts = new JTextField();
 		tfPreviousPlayOuts.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		tfPreviousPlayOuts.setEditable(false);
 		tfPreviousPlayOuts.setColumns(10);
-		tfPreviousPlayOuts.setBounds(407, 189, 36, 30);
+		tfPreviousPlayOuts.setBounds(113, 189, 36, 30);
 		previousPlayPanel.add(tfPreviousPlayOuts);
 		
 		JPanel awayPanel = new JPanel();
@@ -1825,19 +1843,9 @@ public class GUI{
 		tfStrikeouts.setBounds(1491, 79, 46, 20);
 		batterPanel.add(tfStrikeouts);
 		
-		
-		
-		btnNextPlay.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				boolean b = nextPlay();
-				btnNextPlay.setEnabled(b);
-				
-			}
-		});
-		
 		btnStartGame.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				btnNextPlay.setEnabled(true);
+				btnNextPlay_1.setEnabled(true);
 				btnStartGame.setEnabled(false);
 				game = new BaseballGame();
 				startGame();
@@ -1913,5 +1921,22 @@ public class GUI{
 
 	public static void setBtnNextPlay(JButton btnNextPlay) {
 		GUI.btnNextPlay = btnNextPlay;
+	}
+	private static void addPopup(Component component, final JPopupMenu popup) {
+		component.addMouseListener(new MouseAdapter() {
+			public void mousePressed(MouseEvent e) {
+				if (e.isPopupTrigger()) {
+					showMenu(e);
+				}
+			}
+			public void mouseReleased(MouseEvent e) {
+				if (e.isPopupTrigger()) {
+					showMenu(e);
+				}
+			}
+			private void showMenu(MouseEvent e) {
+				popup.show(e.getComponent(), e.getX(), e.getY());
+			}
+		});
 	}
 }
