@@ -8,7 +8,7 @@ are written in this class*/
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
+import javax.swing.*;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -942,8 +942,6 @@ public class GUI{
 	private static JLabel lblAwayScore;
 	private static JButton btnStartGame;
 	private static JButton btnNextPlay;
-	private JButton btnNewButton;
-	private JPopupMenu popupMenu;
 	
 	public GUI() {
 		initialize();
@@ -952,13 +950,160 @@ public class GUI{
 	private void initialize() {
 		
 		setFrame(new JFrame());
-		getFrame().setBounds(100, 100, 1611, 969);
+		getFrame().setBounds(100, 100, 1600, 985);
 		getFrame().setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		getFrame().getContentPane().setLayout(null);
+		Color colorGray = new Color(100,100,100);
+		getFrame().getContentPane().setBackground(colorGray);
+		
+		JMenuBar menuBar = new JMenuBar();
+		getFrame().setJMenuBar(menuBar);
+		
+		JMenu newTeam = new JMenu("Create New Team");
+		JMenuItem home = new JMenuItem("Home Team");
+		JMenuItem away = new JMenuItem("Away Team");
+		newTeam.add(home);
+		newTeam.add(away);
+		
+		JFrame homeTeamFrame = new JFrame("Home Team");
+		homeTeamFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		JFrame awayTeamFrame = new JFrame("Away Team");
+		awayTeamFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		JTextField homeBatter1Field = new JTextField(25);
+		JTextField homeBatter2Field = new JTextField(25);
+		JTextField homeBatter3Field = new JTextField(25);
+		JTextField homeBatter4Field = new JTextField(25);
+		JTextField homeBatter5Field = new JTextField(25);
+		JTextField homeBatter6Field = new JTextField(25);
+		JTextField homeBatter7Field = new JTextField(25);
+		JTextField homeBatter8Field = new JTextField(25);
+		JTextField homePitcherField = new JTextField(25);
+		
+		JPanel homeTeamPane = new JPanel();
+		homeTeamPane.setLayout(new BoxLayout(homeTeamPane, BoxLayout.Y_AXIS));
+		homeTeamPane.add(new JLabel("Name of Batter #1: "));
+		homeTeamPane.add(homeBatter1Field);
+		homeTeamPane.add(new JLabel("Name of Batter #2: "));
+		homeTeamPane.add(homeBatter2Field);
+		homeTeamPane.add(new JLabel("Name of Batter #3: "));
+		homeTeamPane.add(homeBatter3Field);
+		homeTeamPane.add(new JLabel("Name of Batter #4: "));
+		homeTeamPane.add(homeBatter4Field);
+		homeTeamPane.add(new JLabel("Name of Batter #5: "));
+		homeTeamPane.add(homeBatter5Field);
+		homeTeamPane.add(new JLabel("Name of Batter #6: "));
+		homeTeamPane.add(homeBatter6Field);
+		homeTeamPane.add(new JLabel("Name of Batter #7: "));
+		homeTeamPane.add(homeBatter7Field);
+		homeTeamPane.add(new JLabel("Name of Batter #8: "));
+		homeTeamPane.add(homeBatter8Field);
+		homeTeamPane.add(new JLabel("Name of Picher: "));
+		homeTeamPane.add(homePitcherField);
+		
+		JTextField awayBatter1Field = new JTextField(25);
+		JTextField awayBatter2Field = new JTextField(25);
+		JTextField awayBatter3Field = new JTextField(25);
+		JTextField awayBatter4Field = new JTextField(25);
+		JTextField awayBatter5Field = new JTextField(25);
+		JTextField awayBatter6Field = new JTextField(25);
+		JTextField awayBatter7Field = new JTextField(25);
+		JTextField awayBatter8Field = new JTextField(25);
+		JTextField awayPitcherField = new JTextField(25);
+		
+		JPanel awayTeamPane = new JPanel();
+		awayTeamPane.setLayout(new BoxLayout(awayTeamPane, BoxLayout.Y_AXIS));
+		awayTeamPane.add(new JLabel("Name of Batter #1: "));
+		awayTeamPane.add(awayBatter1Field);
+		awayTeamPane.add(new JLabel("Name of Batter #2: "));
+		awayTeamPane.add(awayBatter2Field);
+		awayTeamPane.add(new JLabel("Name of Batter #3: "));
+		awayTeamPane.add(awayBatter3Field);
+		awayTeamPane.add(new JLabel("Name of Batter #4: "));
+		awayTeamPane.add(awayBatter4Field);
+		awayTeamPane.add(new JLabel("Name of Batter #5: "));
+		awayTeamPane.add(awayBatter5Field);
+		awayTeamPane.add(new JLabel("Name of Batter #6: "));
+		awayTeamPane.add(awayBatter6Field);
+		awayTeamPane.add(new JLabel("Name of Batter #7: "));
+		awayTeamPane.add(awayBatter7Field);
+		awayTeamPane.add(new JLabel("Name of Batter #8: "));
+		awayTeamPane.add(awayBatter8Field);
+		awayTeamPane.add(new JLabel("Name of Picher: "));
+		awayTeamPane.add(awayPitcherField);
+		
+		home.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				JOptionPane.showConfirmDialog(homeTeamFrame, homeTeamPane, "Home Team", JOptionPane.YES_OPTION, JOptionPane.INFORMATION_MESSAGE);
+			}
+		});
+		
+		away.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				JOptionPane.showConfirmDialog(awayTeamFrame, awayTeamPane, "Away Team", JOptionPane.YES_OPTION, JOptionPane.INFORMATION_MESSAGE);
+			}
+		});
+		
+		
+		JMenu teamOptions = new JMenu("Team Options");
+		teamOptions.add(newTeam);
+		menuBar.add(teamOptions);
+	
+		JMenu changeColor = new JMenu("Change Background Color");
+		JMenuItem red = new JMenuItem("Red");
+		JMenuItem blue = new JMenuItem("Blue");
+		JMenuItem green = new JMenuItem("Green");
+		JMenuItem orange = new JMenuItem("Orange");
+		JMenuItem gray = new JMenuItem("Gray");
+		changeColor.add(red);
+		changeColor.add(blue);
+		changeColor.add(green);
+		changeColor.add(orange);
+		changeColor.add(gray);
+		
+		Color colorRed = new Color(150,0,0);
+		Color colorGreen = new Color(0,150,0);
+		Color colorBlue = new Color(0,0,175);
+		Color colorOrange = new Color(204,102,0);
+		
+		red.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				getFrame().getContentPane().setBackground(colorRed);
+			}
+		});
+		
+		green.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				getFrame().getContentPane().setBackground(colorGreen);
+			}
+		});
+		
+		blue.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				getFrame().getContentPane().setBackground(colorBlue);
+			}
+		});
+		
+		orange.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				getFrame().getContentPane().setBackground(colorOrange);
+			}
+		});
+		
+		gray.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				getFrame().getContentPane().setBackground(colorGray);
+			}
+		});
+		
+		JMenu preferences = new JMenu("Preferences");
+		preferences.add(changeColor);
+		menuBar.add(preferences);
 		
 		JPanel scoreboardPanel = new JPanel();
 		scoreboardPanel.setBorder(new SoftBevelBorder(BevelBorder.RAISED, null, null, null, null));
-		scoreboardPanel.setBounds(10, 11, 1575, 186);
+		scoreboardPanel.setBounds(10, 16, 1575, 186);
 		getFrame().getContentPane().add(scoreboardPanel);
 		scoreboardPanel.setLayout(null);
 		
@@ -1194,22 +1339,8 @@ public class GUI{
 		
 		JButton btnStartGame = new JButton("Start New Game");
 		
-		btnStartGame.setBounds(1414, 62, 136, 37);
+		btnStartGame.setBounds(1414, 22, 136, 37);
 		scoreboardPanel.add(btnStartGame);
-		
-		JButton btnMenu = new JButton("Menu");
-		btnMenu.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		btnMenu.setBounds(1414, 18, 136, 37);
-		scoreboardPanel.add(btnMenu);
-		
-		JPopupMenu popupMenu = new JPopupMenu();
-		
-
-		
-		addPopup(btnMenu, popupMenu);
 		
 		JButton btnNextPlay_1 = new JButton("Run Next Play");
 		btnNextPlay_1.setBounds(1414, 135, 136, 37);
@@ -1226,7 +1357,7 @@ public class GUI{
 		
 		JPanel boxStatusPanel = new JPanel();
 		boxStatusPanel.setBorder(new SoftBevelBorder(BevelBorder.RAISED, null, null, null, null));
-		boxStatusPanel.setBounds(434, 208, 719, 294);
+		boxStatusPanel.setBounds(434, 214, 719, 294);
 		getFrame().getContentPane().add(boxStatusPanel);
 		boxStatusPanel.setLayout(null);
 		
@@ -1285,7 +1416,7 @@ public class GUI{
 		
 		JPanel previousPlayPanel = new JPanel();
 		previousPlayPanel.setBorder(new SoftBevelBorder(BevelBorder.RAISED, null, null, null, null));
-		previousPlayPanel.setBounds(434, 513, 719, 256);
+		previousPlayPanel.setBounds(434, 519, 719, 256);
 		getFrame().getContentPane().add(previousPlayPanel);
 		previousPlayPanel.setLayout(null);
 		
@@ -1332,7 +1463,7 @@ public class GUI{
 		
 		JPanel awayPanel = new JPanel();
 		awayPanel.setBorder(new SoftBevelBorder(BevelBorder.RAISED, null, null, null, null));
-		awayPanel.setBounds(10, 208, 414, 561);
+		awayPanel.setBounds(10, 214, 414, 561);
 		getFrame().getContentPane().add(awayPanel);
 		awayPanel.setLayout(null);
 		
@@ -1509,7 +1640,7 @@ public class GUI{
 		JPanel homePanel = new JPanel();
 		homePanel.setBorder(new SoftBevelBorder(BevelBorder.RAISED, null, null, null, null));
 		homePanel.setLayout(null);
-		homePanel.setBounds(1163, 208, 422, 561);
+		homePanel.setBounds(1163, 214, 422, 561);
 		getFrame().getContentPane().add(homePanel);
 		
 		JLabel lblHomeLineup = new JLabel("Home Line Up");
@@ -1684,7 +1815,7 @@ public class GUI{
 		batterPanel = new JPanel();
 		batterPanel.setBorder(new SoftBevelBorder(BevelBorder.RAISED, null, null, null, null));
 		batterPanel.setLayout(null);
-		batterPanel.setBounds(10, 780, 1575, 140);
+		batterPanel.setBounds(10, 787, 1575, 140);
 		getFrame().getContentPane().add(batterPanel);
 		
 		lblVersus = new JLabel("VS.");
