@@ -25,6 +25,7 @@ import javax.swing.JPopupMenu;
 import java.awt.Component;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.ArrayList;
 public class GUI{
 
 	public JTextField getTfAwayInning1() {
@@ -942,6 +943,10 @@ public class GUI{
 	private static JLabel lblAwayScore;
 	private static JButton btnStartGame;
 	private static JButton btnNextPlay;
+	private ArrayList<String> homeFirstNames;
+	private ArrayList<String> homeLastNames;
+	private ArrayList<String> awayFirstNames;
+	private ArrayList<String> awayLastNames;
 	
 	public GUI() {
 		initialize();
@@ -953,103 +958,234 @@ public class GUI{
 		getFrame().setBounds(100, 100, 1600, 985);
 		getFrame().setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		getFrame().getContentPane().setLayout(null);
+		//Sets the shade of gray to be used
 		Color colorGray = new Color(100,100,100);
+		//Initializes the background to gray
 		getFrame().getContentPane().setBackground(colorGray);
 		
+		//Creates the menu bar at the top of the window
 		JMenuBar menuBar = new JMenuBar();
 		getFrame().setJMenuBar(menuBar);
 		
+		//Creates a sub-menu to create a new team
 		JMenu newTeam = new JMenu("Create New Team");
 		JMenuItem home = new JMenuItem("Home Team");
 		JMenuItem away = new JMenuItem("Away Team");
 		newTeam.add(home);
 		newTeam.add(away);
 		
+		//Creates a new frame to get names to create a new home team
 		JFrame homeTeamFrame = new JFrame("Home Team");
 		homeTeamFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
+		//Creates a new frame to get names to create a new away team
 		JFrame awayTeamFrame = new JFrame("Away Team");
 		awayTeamFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
-		JTextField homeBatter1Field = new JTextField(25);
-		JTextField homeBatter2Field = new JTextField(25);
-		JTextField homeBatter3Field = new JTextField(25);
-		JTextField homeBatter4Field = new JTextField(25);
-		JTextField homeBatter5Field = new JTextField(25);
-		JTextField homeBatter6Field = new JTextField(25);
-		JTextField homeBatter7Field = new JTextField(25);
-		JTextField homeBatter8Field = new JTextField(25);
-		JTextField homePitcherField = new JTextField(25);
+		//Text fields to get player names for a new home team
+		JTextField homeCFFirstName = new JTextField(25);
+		JTextField homeCFLastName = new JTextField(25);
+		JTextField homeRFFirstName = new JTextField(25);
+		JTextField homeRFLastName = new JTextField(25);
+		JTextField homeLFFirstName = new JTextField(25);
+		JTextField homeLFLastName = new JTextField(25);
+		JTextField home1BFirstName = new JTextField(25);
+		JTextField home1BLastName = new JTextField(25);
+		JTextField home2BFirstName = new JTextField(25);
+		JTextField home2BLastName = new JTextField(25);
+		JTextField homeSSFirstName = new JTextField(25);
+		JTextField homeSSLastName = new JTextField(25);
+		JTextField home3BFirstName = new JTextField(25);
+		JTextField home3BLastName = new JTextField(25);
+		JTextField homeCFirstName = new JTextField(25);
+		JTextField homeCLastName = new JTextField(25);
+		JTextField homePFirstName = new JTextField(25);
+		JTextField homePLastName = new JTextField(25);
 		
+		//Creates the panel with labels and text boxes for new home player names
 		JPanel homeTeamPane = new JPanel();
 		homeTeamPane.setLayout(new BoxLayout(homeTeamPane, BoxLayout.Y_AXIS));
-		homeTeamPane.add(new JLabel("Name of Batter #1: "));
-		homeTeamPane.add(homeBatter1Field);
-		homeTeamPane.add(new JLabel("Name of Batter #2: "));
-		homeTeamPane.add(homeBatter2Field);
-		homeTeamPane.add(new JLabel("Name of Batter #3: "));
-		homeTeamPane.add(homeBatter3Field);
-		homeTeamPane.add(new JLabel("Name of Batter #4: "));
-		homeTeamPane.add(homeBatter4Field);
-		homeTeamPane.add(new JLabel("Name of Batter #5: "));
-		homeTeamPane.add(homeBatter5Field);
-		homeTeamPane.add(new JLabel("Name of Batter #6: "));
-		homeTeamPane.add(homeBatter6Field);
-		homeTeamPane.add(new JLabel("Name of Batter #7: "));
-		homeTeamPane.add(homeBatter7Field);
-		homeTeamPane.add(new JLabel("Name of Batter #8: "));
-		homeTeamPane.add(homeBatter8Field);
-		homeTeamPane.add(new JLabel("Name of Picher: "));
-		homeTeamPane.add(homePitcherField);
+		homeTeamPane.add(new JLabel("Center Field - First Name: "));
+		homeTeamPane.add(homeCFFirstName);
+		homeTeamPane.add(new JLabel("Center Field - Last Name: "));
+		homeTeamPane.add(homeCFLastName);
+		homeTeamPane.add(new JLabel("Right Field - First Name: "));
+		homeTeamPane.add(homeRFFirstName);
+		homeTeamPane.add(new JLabel("Right Field - Last Name: "));
+		homeTeamPane.add(homeRFLastName);
+		homeTeamPane.add(new JLabel("Left Field - First Name: "));
+		homeTeamPane.add(homeLFFirstName);
+		homeTeamPane.add(new JLabel("Left Field - Last Name: "));
+		homeTeamPane.add(homeLFLastName);
+		homeTeamPane.add(new JLabel("1st Base - First Name: "));
+		homeTeamPane.add(home1BFirstName);
+		homeTeamPane.add(new JLabel("1st Base - Last Name: "));
+		homeTeamPane.add(home1BLastName);
+		homeTeamPane.add(new JLabel("2nd Base - First Name: "));
+		homeTeamPane.add(home2BFirstName);
+		homeTeamPane.add(new JLabel("2nd Base - Last Name: "));
+		homeTeamPane.add(home2BLastName);
+		homeTeamPane.add(new JLabel("Short Stop - First Name: "));
+		homeTeamPane.add(homeSSFirstName);
+		homeTeamPane.add(new JLabel("Short Stop - Last Name: "));
+		homeTeamPane.add(homeSSLastName);
+		homeTeamPane.add(new JLabel("3rd Base - First Name: "));
+		homeTeamPane.add(home3BFirstName);
+		homeTeamPane.add(new JLabel("3rd Base - Last Name: "));
+		homeTeamPane.add(home3BLastName);
+		homeTeamPane.add(new JLabel("Catcher - First Name: "));
+		homeTeamPane.add(homeCFirstName);
+		homeTeamPane.add(new JLabel("Catcher - Last Name: "));
+		homeTeamPane.add(homeCLastName);
+		homeTeamPane.add(new JLabel("Pitcher - First Name: "));
+		homeTeamPane.add(homePFirstName);
+		homeTeamPane.add(new JLabel("Pitcher - Last Name: "));
+		homeTeamPane.add(homePLastName);
 		
-		JTextField awayBatter1Field = new JTextField(25);
-		JTextField awayBatter2Field = new JTextField(25);
-		JTextField awayBatter3Field = new JTextField(25);
-		JTextField awayBatter4Field = new JTextField(25);
-		JTextField awayBatter5Field = new JTextField(25);
-		JTextField awayBatter6Field = new JTextField(25);
-		JTextField awayBatter7Field = new JTextField(25);
-		JTextField awayBatter8Field = new JTextField(25);
-		JTextField awayPitcherField = new JTextField(25);
+		//Text fields to get player names for a new away team
+		JTextField awayCFFirstName = new JTextField(25);
+		JTextField awayCFLastName = new JTextField(25);
+		JTextField awayRFFirstName = new JTextField(25);
+		JTextField awayRFLastName = new JTextField(25);
+		JTextField awayLFFirstName = new JTextField(25);
+		JTextField awayLFLastName = new JTextField(25);
+		JTextField away1BFirstName = new JTextField(25);
+		JTextField away1BLastName = new JTextField(25);
+		JTextField away2BFirstName = new JTextField(25);
+		JTextField away2BLastName = new JTextField(25);
+		JTextField awaySSFirstName = new JTextField(25);
+		JTextField awaySSLastName = new JTextField(25);
+		JTextField away3BFirstName = new JTextField(25);
+		JTextField away3BLastName = new JTextField(25);
+		JTextField awayCFirstName = new JTextField(25);
+		JTextField awayCLastName = new JTextField(25);
+		JTextField awayPFirstName = new JTextField(25);
+		JTextField awayPLastName = new JTextField(25);
 		
+		//Creates the panel with labels and text boxes for new  player names
 		JPanel awayTeamPane = new JPanel();
 		awayTeamPane.setLayout(new BoxLayout(awayTeamPane, BoxLayout.Y_AXIS));
-		awayTeamPane.add(new JLabel("Name of Batter #1: "));
-		awayTeamPane.add(awayBatter1Field);
-		awayTeamPane.add(new JLabel("Name of Batter #2: "));
-		awayTeamPane.add(awayBatter2Field);
-		awayTeamPane.add(new JLabel("Name of Batter #3: "));
-		awayTeamPane.add(awayBatter3Field);
-		awayTeamPane.add(new JLabel("Name of Batter #4: "));
-		awayTeamPane.add(awayBatter4Field);
-		awayTeamPane.add(new JLabel("Name of Batter #5: "));
-		awayTeamPane.add(awayBatter5Field);
-		awayTeamPane.add(new JLabel("Name of Batter #6: "));
-		awayTeamPane.add(awayBatter6Field);
-		awayTeamPane.add(new JLabel("Name of Batter #7: "));
-		awayTeamPane.add(awayBatter7Field);
-		awayTeamPane.add(new JLabel("Name of Batter #8: "));
-		awayTeamPane.add(awayBatter8Field);
-		awayTeamPane.add(new JLabel("Name of Picher: "));
-		awayTeamPane.add(awayPitcherField);
+		awayTeamPane.add(new JLabel("Center Field - First Name: "));
+		awayTeamPane.add(awayCFFirstName);
+		awayTeamPane.add(new JLabel("Center Field - Last Name: "));
+		awayTeamPane.add(awayCFLastName);
+		awayTeamPane.add(new JLabel("Right Field - First Name: "));
+		awayTeamPane.add(awayRFFirstName);
+		awayTeamPane.add(new JLabel("Right Field - Last Name: "));
+		awayTeamPane.add(awayRFLastName);
+		awayTeamPane.add(new JLabel("Left Field - First Name: "));
+		awayTeamPane.add(awayLFFirstName);
+		awayTeamPane.add(new JLabel("Left Field - Last Name: "));
+		awayTeamPane.add(awayLFLastName);
+		awayTeamPane.add(new JLabel("1st Base - First Name: "));
+		awayTeamPane.add(away1BFirstName);
+		awayTeamPane.add(new JLabel("1st Base - Last Name: "));
+		awayTeamPane.add(away1BLastName);
+		awayTeamPane.add(new JLabel("2nd Base - First Name: "));
+		awayTeamPane.add(away2BFirstName);
+		awayTeamPane.add(new JLabel("2nd Base - Last Name: "));
+		awayTeamPane.add(away2BLastName);
+		awayTeamPane.add(new JLabel("Short Stop - First Name: "));
+		awayTeamPane.add(awaySSFirstName);
+		awayTeamPane.add(new JLabel("Short Stop - Last Name: "));
+		awayTeamPane.add(awaySSLastName);
+		awayTeamPane.add(new JLabel("3rd Base - First Name: "));
+		awayTeamPane.add(away3BFirstName);
+		awayTeamPane.add(new JLabel("3rd Base - Last Name: "));
+		awayTeamPane.add(away3BLastName);
+		awayTeamPane.add(new JLabel("Catcher - First Name: "));
+		awayTeamPane.add(awayCFirstName);
+		awayTeamPane.add(new JLabel("Catcher - Last Name: "));
+		awayTeamPane.add(awayCLastName);
+		awayTeamPane.add(new JLabel("Pitcher - First Name: "));
+		awayTeamPane.add(awayPFirstName);
+		awayTeamPane.add(new JLabel("Pitcher - Last Name: "));
+		awayTeamPane.add(awayPLastName);
 		
+		//ArrayLists to store home team first and last names
+		homeFirstNames = new ArrayList<String>();
+		homeLastNames = new ArrayList<String>();
+		
+		//Opens the frame with the home team player name text boxes
 		home.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				JOptionPane.showConfirmDialog(homeTeamFrame, homeTeamPane, "Home Team", JOptionPane.YES_OPTION, JOptionPane.INFORMATION_MESSAGE);
+				int option = JOptionPane.showOptionDialog(homeTeamFrame, homeTeamPane, "Home Team", JOptionPane.OK_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, null, null, null);
+				if(option == JOptionPane.OK_OPTION) {
+					//Empties the lists in case there were already names in the lists
+					homeFirstNames.clear();
+					homeLastNames.clear();
+					
+					//Stores user input for home team first names in an ArrayList
+					homeFirstNames.add(homeCFFirstName.getText());
+					homeFirstNames.add(homeRFFirstName.getText());
+					homeFirstNames.add(homeLFFirstName.getText());
+					homeFirstNames.add(home1BFirstName.getText());
+					homeFirstNames.add(home2BFirstName.getText());
+					homeFirstNames.add(homeSSFirstName.getText());
+					homeFirstNames.add(home3BFirstName.getText());
+					homeFirstNames.add(homeCFirstName.getText());
+					homeFirstNames.add(homePFirstName.getText());
+
+					//Stores user input for home team last names in an ArrayList
+					homeLastNames.add(homeCFLastName.getText());
+					homeLastNames.add(homeRFLastName.getText());
+					homeLastNames.add(homeLFLastName.getText());
+					homeLastNames.add(home1BLastName.getText());
+					homeLastNames.add(home2BLastName.getText());
+					homeLastNames.add(homeSSLastName.getText());
+					homeLastNames.add(home3BLastName.getText());
+					homeLastNames.add(homeCLastName.getText());
+					homeLastNames.add(homePLastName.getText());
+				}
 			}
 		});
 		
+		//ArrayLists to store away team first and last names
+		awayFirstNames = new ArrayList<String>();
+		awayLastNames = new ArrayList<String>();
+		
+		//Opens the frame with the away team player name text boxes
 		away.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				JOptionPane.showConfirmDialog(awayTeamFrame, awayTeamPane, "Away Team", JOptionPane.YES_OPTION, JOptionPane.INFORMATION_MESSAGE);
+				int option = JOptionPane.showOptionDialog(awayTeamFrame, awayTeamPane, "Away Team", JOptionPane.OK_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, null, null, null);
+				if(option == JOptionPane.OK_OPTION) {
+					//Empties the lists in case there were already names in the lists
+					awayFirstNames.clear();
+					awayLastNames.clear();
+					
+					//Stores user input for home team first names in an ArrayList
+					awayFirstNames.add(awayCFFirstName.getText());
+					awayFirstNames.add(awayRFFirstName.getText());
+					awayFirstNames.add(awayLFFirstName.getText());
+					awayFirstNames.add(away1BFirstName.getText());
+					awayFirstNames.add(away2BFirstName.getText());
+					awayFirstNames.add(awaySSFirstName.getText());
+					awayFirstNames.add(away3BFirstName.getText());
+					awayFirstNames.add(awayCFirstName.getText());
+					awayFirstNames.add(awayPFirstName.getText());
+
+					//Stores user input for away team last names in an ArrayList
+					awayLastNames.add(awayCFLastName.getText());
+					awayLastNames.add(awayRFLastName.getText());
+					awayLastNames.add(awayLFLastName.getText());
+					awayLastNames.add(away1BLastName.getText());
+					awayLastNames.add(away2BLastName.getText());
+					awayLastNames.add(awaySSLastName.getText());
+					awayLastNames.add(away3BLastName.getText());
+					awayLastNames.add(awayCLastName.getText());
+					awayLastNames.add(awayPLastName.getText());
+				}
 			}
 		});
 		
-		
+		//Creates the Team Options menu
 		JMenu teamOptions = new JMenu("Team Options");
+		//Adds the new team sub-menu to the team options menu
 		teamOptions.add(newTeam);
+		//Adds the team options menu to the menu bar
 		menuBar.add(teamOptions);
 	
+		//Creates the change background color menu and adds the colors
 		JMenu changeColor = new JMenu("Change Background Color");
 		JMenuItem red = new JMenuItem("Red");
 		JMenuItem blue = new JMenuItem("Blue");
@@ -1062,43 +1198,52 @@ public class GUI{
 		changeColor.add(orange);
 		changeColor.add(gray);
 		
+		//Specifies the exact color to be used
 		Color colorRed = new Color(150,0,0);
 		Color colorGreen = new Color(0,150,0);
 		Color colorBlue = new Color(0,0,175);
 		Color colorOrange = new Color(204,102,0);
 		
+		//Changes the background color to red
 		red.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				getFrame().getContentPane().setBackground(colorRed);
 			}
 		});
 		
+		//Changes the background color to green
 		green.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				getFrame().getContentPane().setBackground(colorGreen);
 			}
 		});
 		
+		//Changes the background color to blue
 		blue.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				getFrame().getContentPane().setBackground(colorBlue);
 			}
 		});
 		
+		//Changes the background color to orange
 		orange.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				getFrame().getContentPane().setBackground(colorOrange);
 			}
 		});
 		
+		//Changes the background color to gray
 		gray.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				getFrame().getContentPane().setBackground(colorGray);
 			}
 		});
 		
+		//Creates the preferences menu
 		JMenu preferences = new JMenu("Preferences");
+		//Adds the change background color sub-menu to the preferences menu
 		preferences.add(changeColor);
+		//Adds the preferences menu to the menu bar
 		menuBar.add(preferences);
 		
 		JPanel scoreboardPanel = new JPanel();
