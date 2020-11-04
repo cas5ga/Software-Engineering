@@ -370,6 +370,11 @@ public class BaseballGame{
       die1 = roll(); //roll the first die
       die2 = roll(); //roll the second die
       
+      while((die1 == 5 && die2 == 6) && numberOfOuts > 1){ //rerolls the dice if a sac fly is rolled while at 2 outs
+    	  die1 = roll();
+          die2 = roll();
+      }
+      
       
       if(die1>die2){ //swap to accommodate switch statement
          temp = die1;
