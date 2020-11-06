@@ -8,7 +8,7 @@ are written in this class*/
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
+import javax.swing.*;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -25,6 +25,7 @@ import javax.swing.JPopupMenu;
 import java.awt.Component;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.ArrayList;
 public class GUI{
 
 	public JTextField getTfAwayInning1() {
@@ -942,8 +943,12 @@ public class GUI{
 	private static JLabel lblAwayScore;
 	private static JButton btnStartGame;
 	private static JButton btnNextPlay;
-	private JButton btnNewButton;
-	private JPopupMenu popupMenu;
+	private ArrayList<String> homeFirstNames;
+	private ArrayList<String> homeLastNames;
+	private ArrayList<String> awayFirstNames;
+	private ArrayList<String> awayLastNames;
+	private JLabel img;
+	private JLabel lblNewLabel;
 	
 	public GUI() {
 		initialize();
@@ -952,13 +957,300 @@ public class GUI{
 	private void initialize() {
 		
 		setFrame(new JFrame());
-		getFrame().setBounds(100, 100, 1611, 969);
+		getFrame().setBounds(100, 100, 1600, 985);
 		getFrame().setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		getFrame().getContentPane().setLayout(null);
+		//Sets the shade of gray to be used
+		Color colorGray = new Color(100,100,100);
+		//Initializes the background to gray
+		getFrame().getContentPane().setBackground(colorGray);
+		
+		//Creates the menu bar at the top of the window
+		JMenuBar menuBar = new JMenuBar();
+		getFrame().setJMenuBar(menuBar);
+		
+		//Creates a sub-menu to create a new team
+		JMenu newTeam = new JMenu("Create New Team");
+		JMenuItem home = new JMenuItem("Home Team");
+		JMenuItem away = new JMenuItem("Away Team");
+		newTeam.add(home);
+		newTeam.add(away);
+		
+		//Creates a new frame to get names to create a new home team
+		JFrame homeTeamFrame = new JFrame("Home Team");
+		homeTeamFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		//Creates a new frame to get names to create a new away team
+		JFrame awayTeamFrame = new JFrame("Away Team");
+		awayTeamFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		//Text fields to get player names for a new home team
+		JTextField homeCFFirstName = new JTextField(25);
+		JTextField homeCFLastName = new JTextField(25);
+		JTextField homeRFFirstName = new JTextField(25);
+		JTextField homeRFLastName = new JTextField(25);
+		JTextField homeLFFirstName = new JTextField(25);
+		JTextField homeLFLastName = new JTextField(25);
+		JTextField home1BFirstName = new JTextField(25);
+		JTextField home1BLastName = new JTextField(25);
+		JTextField home2BFirstName = new JTextField(25);
+		JTextField home2BLastName = new JTextField(25);
+		JTextField homeSSFirstName = new JTextField(25);
+		JTextField homeSSLastName = new JTextField(25);
+		JTextField home3BFirstName = new JTextField(25);
+		JTextField home3BLastName = new JTextField(25);
+		JTextField homeCFirstName = new JTextField(25);
+		JTextField homeCLastName = new JTextField(25);
+		JTextField homePFirstName = new JTextField(25);
+		JTextField homePLastName = new JTextField(25);
+		
+		//Creates the panel with labels and text boxes for new home player names
+		JPanel homeTeamPane = new JPanel();
+		homeTeamPane.setLayout(new BoxLayout(homeTeamPane, BoxLayout.Y_AXIS));
+		homeTeamPane.add(new JLabel("Center Field - First Name: "));
+		homeTeamPane.add(homeCFFirstName);
+		homeTeamPane.add(new JLabel("Center Field - Last Name: "));
+		homeTeamPane.add(homeCFLastName);
+		homeTeamPane.add(new JLabel("Right Field - First Name: "));
+		homeTeamPane.add(homeRFFirstName);
+		homeTeamPane.add(new JLabel("Right Field - Last Name: "));
+		homeTeamPane.add(homeRFLastName);
+		homeTeamPane.add(new JLabel("Left Field - First Name: "));
+		homeTeamPane.add(homeLFFirstName);
+		homeTeamPane.add(new JLabel("Left Field - Last Name: "));
+		homeTeamPane.add(homeLFLastName);
+		homeTeamPane.add(new JLabel("1st Base - First Name: "));
+		homeTeamPane.add(home1BFirstName);
+		homeTeamPane.add(new JLabel("1st Base - Last Name: "));
+		homeTeamPane.add(home1BLastName);
+		homeTeamPane.add(new JLabel("2nd Base - First Name: "));
+		homeTeamPane.add(home2BFirstName);
+		homeTeamPane.add(new JLabel("2nd Base - Last Name: "));
+		homeTeamPane.add(home2BLastName);
+		homeTeamPane.add(new JLabel("Short Stop - First Name: "));
+		homeTeamPane.add(homeSSFirstName);
+		homeTeamPane.add(new JLabel("Short Stop - Last Name: "));
+		homeTeamPane.add(homeSSLastName);
+		homeTeamPane.add(new JLabel("3rd Base - First Name: "));
+		homeTeamPane.add(home3BFirstName);
+		homeTeamPane.add(new JLabel("3rd Base - Last Name: "));
+		homeTeamPane.add(home3BLastName);
+		homeTeamPane.add(new JLabel("Catcher - First Name: "));
+		homeTeamPane.add(homeCFirstName);
+		homeTeamPane.add(new JLabel("Catcher - Last Name: "));
+		homeTeamPane.add(homeCLastName);
+		homeTeamPane.add(new JLabel("Pitcher - First Name: "));
+		homeTeamPane.add(homePFirstName);
+		homeTeamPane.add(new JLabel("Pitcher - Last Name: "));
+		homeTeamPane.add(homePLastName);
+		
+		//Text fields to get player names for a new away team
+		JTextField awayCFFirstName = new JTextField(25);
+		JTextField awayCFLastName = new JTextField(25);
+		JTextField awayRFFirstName = new JTextField(25);
+		JTextField awayRFLastName = new JTextField(25);
+		JTextField awayLFFirstName = new JTextField(25);
+		JTextField awayLFLastName = new JTextField(25);
+		JTextField away1BFirstName = new JTextField(25);
+		JTextField away1BLastName = new JTextField(25);
+		JTextField away2BFirstName = new JTextField(25);
+		JTextField away2BLastName = new JTextField(25);
+		JTextField awaySSFirstName = new JTextField(25);
+		JTextField awaySSLastName = new JTextField(25);
+		JTextField away3BFirstName = new JTextField(25);
+		JTextField away3BLastName = new JTextField(25);
+		JTextField awayCFirstName = new JTextField(25);
+		JTextField awayCLastName = new JTextField(25);
+		JTextField awayPFirstName = new JTextField(25);
+		JTextField awayPLastName = new JTextField(25);
+		
+		//Creates the panel with labels and text boxes for new  player names
+		JPanel awayTeamPane = new JPanel();
+		awayTeamPane.setLayout(new BoxLayout(awayTeamPane, BoxLayout.Y_AXIS));
+		awayTeamPane.add(new JLabel("Center Field - First Name: "));
+		awayTeamPane.add(awayCFFirstName);
+		awayTeamPane.add(new JLabel("Center Field - Last Name: "));
+		awayTeamPane.add(awayCFLastName);
+		awayTeamPane.add(new JLabel("Right Field - First Name: "));
+		awayTeamPane.add(awayRFFirstName);
+		awayTeamPane.add(new JLabel("Right Field - Last Name: "));
+		awayTeamPane.add(awayRFLastName);
+		awayTeamPane.add(new JLabel("Left Field - First Name: "));
+		awayTeamPane.add(awayLFFirstName);
+		awayTeamPane.add(new JLabel("Left Field - Last Name: "));
+		awayTeamPane.add(awayLFLastName);
+		awayTeamPane.add(new JLabel("1st Base - First Name: "));
+		awayTeamPane.add(away1BFirstName);
+		awayTeamPane.add(new JLabel("1st Base - Last Name: "));
+		awayTeamPane.add(away1BLastName);
+		awayTeamPane.add(new JLabel("2nd Base - First Name: "));
+		awayTeamPane.add(away2BFirstName);
+		awayTeamPane.add(new JLabel("2nd Base - Last Name: "));
+		awayTeamPane.add(away2BLastName);
+		awayTeamPane.add(new JLabel("Short Stop - First Name: "));
+		awayTeamPane.add(awaySSFirstName);
+		awayTeamPane.add(new JLabel("Short Stop - Last Name: "));
+		awayTeamPane.add(awaySSLastName);
+		awayTeamPane.add(new JLabel("3rd Base - First Name: "));
+		awayTeamPane.add(away3BFirstName);
+		awayTeamPane.add(new JLabel("3rd Base - Last Name: "));
+		awayTeamPane.add(away3BLastName);
+		awayTeamPane.add(new JLabel("Catcher - First Name: "));
+		awayTeamPane.add(awayCFirstName);
+		awayTeamPane.add(new JLabel("Catcher - Last Name: "));
+		awayTeamPane.add(awayCLastName);
+		awayTeamPane.add(new JLabel("Pitcher - First Name: "));
+		awayTeamPane.add(awayPFirstName);
+		awayTeamPane.add(new JLabel("Pitcher - Last Name: "));
+		awayTeamPane.add(awayPLastName);
+		
+		//ArrayLists to store home team first and last names
+		homeFirstNames = new ArrayList<String>();
+		homeLastNames = new ArrayList<String>();
+		
+		//Opens the frame with the home team player name text boxes
+		home.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				int option = JOptionPane.showOptionDialog(homeTeamFrame, homeTeamPane, "Home Team", JOptionPane.OK_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, null, null, null);
+				if(option == JOptionPane.OK_OPTION) {
+					//Empties the lists in case there were already names in the lists
+					homeFirstNames.clear();
+					homeLastNames.clear();
+					
+					//Stores user input for home team first names in an ArrayList
+					homeFirstNames.add(homeCFFirstName.getText());
+					homeFirstNames.add(homeRFFirstName.getText());
+					homeFirstNames.add(homeLFFirstName.getText());
+					homeFirstNames.add(home1BFirstName.getText());
+					homeFirstNames.add(home2BFirstName.getText());
+					homeFirstNames.add(homeSSFirstName.getText());
+					homeFirstNames.add(home3BFirstName.getText());
+					homeFirstNames.add(homeCFirstName.getText());
+					homeFirstNames.add(homePFirstName.getText());
+
+					//Stores user input for home team last names in an ArrayList
+					homeLastNames.add(homeCFLastName.getText());
+					homeLastNames.add(homeRFLastName.getText());
+					homeLastNames.add(homeLFLastName.getText());
+					homeLastNames.add(home1BLastName.getText());
+					homeLastNames.add(home2BLastName.getText());
+					homeLastNames.add(homeSSLastName.getText());
+					homeLastNames.add(home3BLastName.getText());
+					homeLastNames.add(homeCLastName.getText());
+					homeLastNames.add(homePLastName.getText());
+				}
+			}
+		});
+		
+		//ArrayLists to store away team first and last names
+		awayFirstNames = new ArrayList<String>();
+		awayLastNames = new ArrayList<String>();
+		
+		//Opens the frame with the away team player name text boxes
+		away.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				int option = JOptionPane.showOptionDialog(awayTeamFrame, awayTeamPane, "Away Team", JOptionPane.OK_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, null, null, null);
+				if(option == JOptionPane.OK_OPTION) {
+					//Empties the lists in case there were already names in the lists
+					awayFirstNames.clear();
+					awayLastNames.clear();
+					
+					//Stores user input for home team first names in an ArrayList
+					awayFirstNames.add(awayCFFirstName.getText());
+					awayFirstNames.add(awayRFFirstName.getText());
+					awayFirstNames.add(awayLFFirstName.getText());
+					awayFirstNames.add(away1BFirstName.getText());
+					awayFirstNames.add(away2BFirstName.getText());
+					awayFirstNames.add(awaySSFirstName.getText());
+					awayFirstNames.add(away3BFirstName.getText());
+					awayFirstNames.add(awayCFirstName.getText());
+					awayFirstNames.add(awayPFirstName.getText());
+
+					//Stores user input for away team last names in an ArrayList
+					awayLastNames.add(awayCFLastName.getText());
+					awayLastNames.add(awayRFLastName.getText());
+					awayLastNames.add(awayLFLastName.getText());
+					awayLastNames.add(away1BLastName.getText());
+					awayLastNames.add(away2BLastName.getText());
+					awayLastNames.add(awaySSLastName.getText());
+					awayLastNames.add(away3BLastName.getText());
+					awayLastNames.add(awayCLastName.getText());
+					awayLastNames.add(awayPLastName.getText());
+				}
+			}
+		});
+		
+		//Creates the Team Options menu
+		JMenu teamOptions = new JMenu("Team Options");
+		//Adds the new team sub-menu to the team options menu
+		teamOptions.add(newTeam);
+		//Adds the team options menu to the menu bar
+		menuBar.add(teamOptions);
+	
+		//Creates the change background color menu and adds the colors
+		JMenu changeColor = new JMenu("Change Background Color");
+		JMenuItem red = new JMenuItem("Red");
+		JMenuItem blue = new JMenuItem("Blue");
+		JMenuItem green = new JMenuItem("Green");
+		JMenuItem orange = new JMenuItem("Orange");
+		JMenuItem gray = new JMenuItem("Gray");
+		changeColor.add(red);
+		changeColor.add(blue);
+		changeColor.add(green);
+		changeColor.add(orange);
+		changeColor.add(gray);
+		
+		//Specifies the exact color to be used
+		Color colorRed = new Color(150,0,0);
+		Color colorGreen = new Color(0,150,0);
+		Color colorBlue = new Color(0,0,175);
+		Color colorOrange = new Color(204,102,0);
+		
+		//Changes the background color to red
+		red.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				getFrame().getContentPane().setBackground(colorRed);
+			}
+		});
+		
+		//Changes the background color to green
+		green.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				getFrame().getContentPane().setBackground(colorGreen);
+			}
+		});
+		
+		//Changes the background color to blue
+		blue.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				getFrame().getContentPane().setBackground(colorBlue);
+			}
+		});
+		
+		//Changes the background color to orange
+		orange.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				getFrame().getContentPane().setBackground(colorOrange);
+			}
+		});
+		
+		//Changes the background color to gray
+		gray.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				getFrame().getContentPane().setBackground(colorGray);
+			}
+		});
+		
+		//Creates the preferences menu
+		JMenu preferences = new JMenu("Preferences");
+		//Adds the change background color sub-menu to the preferences menu
+		preferences.add(changeColor);
+		//Adds the preferences menu to the menu bar
+		menuBar.add(preferences);
 		
 		JPanel scoreboardPanel = new JPanel();
 		scoreboardPanel.setBorder(new SoftBevelBorder(BevelBorder.RAISED, null, null, null, null));
-		scoreboardPanel.setBounds(10, 11, 1575, 186);
+		scoreboardPanel.setBounds(10, 16, 1575, 186);
 		getFrame().getContentPane().add(scoreboardPanel);
 		scoreboardPanel.setLayout(null);
 		
@@ -1194,22 +1486,8 @@ public class GUI{
 		
 		JButton btnStartGame = new JButton("Start New Game");
 		
-		btnStartGame.setBounds(1414, 62, 136, 37);
+		btnStartGame.setBounds(1414, 22, 136, 37);
 		scoreboardPanel.add(btnStartGame);
-		
-		JButton btnMenu = new JButton("Menu");
-		btnMenu.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		btnMenu.setBounds(1414, 18, 136, 37);
-		scoreboardPanel.add(btnMenu);
-		
-		JPopupMenu popupMenu = new JPopupMenu();
-		
-
-		
-		addPopup(btnMenu, popupMenu);
 		
 		JButton btnNextPlay_1 = new JButton("Run Next Play");
 		btnNextPlay_1.setBounds(1414, 135, 136, 37);
@@ -1226,14 +1504,14 @@ public class GUI{
 		
 		JPanel boxStatusPanel = new JPanel();
 		boxStatusPanel.setBorder(new SoftBevelBorder(BevelBorder.RAISED, null, null, null, null));
-		boxStatusPanel.setBounds(434, 208, 719, 294);
+		boxStatusPanel.setBounds(434, 214, 719, 561);
 		getFrame().getContentPane().add(boxStatusPanel);
 		boxStatusPanel.setLayout(null);
 		
 		tfSecondBase = new JTextField();
 		tfSecondBase.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		tfSecondBase.setEditable(false);
-		tfSecondBase.setBounds(347, 11, 176, 42);
+		tfSecondBase.setBounds(304, 95, 176, 42);
 		boxStatusPanel.add(tfSecondBase);
 		tfSecondBase.setColumns(10);
 		
@@ -1241,98 +1519,78 @@ public class GUI{
 		tfFirstBase.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		tfFirstBase.setEditable(false);
 		tfFirstBase.setColumns(10);
-		tfFirstBase.setBounds(528, 112, 170, 42);
+		tfFirstBase.setBounds(527, 250, 170, 42);
 		boxStatusPanel.add(tfFirstBase);
 		
 		tfThirdBase = new JTextField();
 		tfThirdBase.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		tfThirdBase.setEditable(false);
 		tfThirdBase.setColumns(10);
-		tfThirdBase.setBounds(123, 112, 176, 42);
+		tfThirdBase.setBounds(81, 250, 176, 42);
 		boxStatusPanel.add(tfThirdBase);
 		
 		tfUpToBat = new JTextField();
 		tfUpToBat.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		tfUpToBat.setEditable(false);
 		tfUpToBat.setColumns(10);
-		tfUpToBat.setBounds(347, 219, 176, 42);
+		tfUpToBat.setBounds(304, 409, 176, 42);
 		boxStatusPanel.add(tfUpToBat);
 		
-		JLabel lblUpToBat = new JLabel("Up to bat:");
-		lblUpToBat.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblUpToBat.setBounds(267, 224, 70, 28);
-		boxStatusPanel.add(lblUpToBat);
-		
-		JLabel lblFirstBase = new JLabel("First Base:");
-		lblFirstBase.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblFirstBase.setBounds(459, 120, 70, 28);
-		boxStatusPanel.add(lblFirstBase);
-		
-		JLabel lblSecondBase = new JLabel("Second Base:");
-		lblSecondBase.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblSecondBase.setBounds(254, 16, 83, 28);
-		boxStatusPanel.add(lblSecondBase);
-		
-		JLabel lblThirdBase = new JLabel("Third Base:");
-		lblThirdBase.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblThirdBase.setBounds(35, 117, 83, 28);
-		boxStatusPanel.add(lblThirdBase);
-		
 		lblBoxStatus = new JLabel("Box Status");
-		lblBoxStatus.setFont(new Font("Tahoma", Font.PLAIN, 45));
-		lblBoxStatus.setBounds(10, 11, 218, 52);
+		lblBoxStatus.setFont(new Font("Tahoma", Font.PLAIN, 40));
+		lblBoxStatus.setBounds(10, 6, 195, 52);
 		boxStatusPanel.add(lblBoxStatus);
 		
-		JPanel previousPlayPanel = new JPanel();
-		previousPlayPanel.setBorder(new SoftBevelBorder(BevelBorder.RAISED, null, null, null, null));
-		previousPlayPanel.setBounds(434, 513, 719, 256);
-		getFrame().getContentPane().add(previousPlayPanel);
-		previousPlayPanel.setLayout(null);
-		
-		JLabel lblPreviousPlay = new JLabel("Current Play:");
-		lblPreviousPlay.setFont(new Font("Tahoma", Font.PLAIN, 45));
-		lblPreviousPlay.setBounds(10, 11, 306, 76);
-		previousPlayPanel.add(lblPreviousPlay);
+		JLabel lblPreviousPlayBatter = new JLabel("Batter:");
+		lblPreviousPlayBatter.setBounds(10, 478, 62, 32);
+		boxStatusPanel.add(lblPreviousPlayBatter);
+		lblPreviousPlayBatter.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		
 		tfPreviousPlayBatter = new JTextField();
+		tfPreviousPlayBatter.setBounds(81, 481, 168, 30);
+		boxStatusPanel.add(tfPreviousPlayBatter);
 		tfPreviousPlayBatter.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		tfPreviousPlayBatter.setEditable(false);
 		tfPreviousPlayBatter.setColumns(10);
-		tfPreviousPlayBatter.setBounds(113, 102, 168, 30);
-		previousPlayPanel.add(tfPreviousPlayBatter);
-		
-		JLabel lblPreviousPlayBatter = new JLabel("Batter:");
-		lblPreviousPlayBatter.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		lblPreviousPlayBatter.setBounds(24, 99, 62, 32);
-		previousPlayPanel.add(lblPreviousPlayBatter);
 		
 		JLabel lblPreviousPlayResult = new JLabel("Play:");
+		lblPreviousPlayResult.setBounds(10, 511, 44, 32);
+		boxStatusPanel.add(lblPreviousPlayResult);
 		lblPreviousPlayResult.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		lblPreviousPlayResult.setBounds(24, 145, 44, 32);
-		previousPlayPanel.add(lblPreviousPlayResult);
 		
 		tfPreviousPlayResult = new JTextField();
+		tfPreviousPlayResult.setBounds(81, 514, 168, 30);
+		boxStatusPanel.add(tfPreviousPlayResult);
 		tfPreviousPlayResult.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		tfPreviousPlayResult.setEditable(false);
 		tfPreviousPlayResult.setColumns(10);
-		tfPreviousPlayResult.setBounds(113, 148, 168, 30);
-		previousPlayPanel.add(tfPreviousPlayResult);
 		
 		JLabel lblPreviousPlayOuts = new JLabel("Outs:");
+		lblPreviousPlayOuts.setBounds(601, 511, 48, 32);
+		boxStatusPanel.add(lblPreviousPlayOuts);
 		lblPreviousPlayOuts.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		lblPreviousPlayOuts.setBounds(24, 186, 48, 32);
-		previousPlayPanel.add(lblPreviousPlayOuts);
 		
 		tfPreviousPlayOuts = new JTextField();
+		tfPreviousPlayOuts.setBounds(661, 514, 36, 30);
+		boxStatusPanel.add(tfPreviousPlayOuts);
 		tfPreviousPlayOuts.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		tfPreviousPlayOuts.setEditable(false);
 		tfPreviousPlayOuts.setColumns(10);
-		tfPreviousPlayOuts.setBounds(113, 189, 36, 30);
-		previousPlayPanel.add(tfPreviousPlayOuts);
+		
+		JLabel img = new JLabel("");
+		img.setBackground(Color.WHITE);
+		img.setIcon(new ImageIcon(this.getClass().getResource("/baseball field.png")));
+		img.setBounds(190, 58, 400, 400);
+		boxStatusPanel.add(img);
+		
+		lblNewLabel = new JLabel("Previous Play:");
+		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 20));
+		lblNewLabel.setBounds(50, 439, 152, 27);
+		boxStatusPanel.add(lblNewLabel);
 		
 		JPanel awayPanel = new JPanel();
 		awayPanel.setBorder(new SoftBevelBorder(BevelBorder.RAISED, null, null, null, null));
-		awayPanel.setBounds(10, 208, 414, 561);
+		awayPanel.setBounds(10, 214, 414, 561);
 		getFrame().getContentPane().add(awayPanel);
 		awayPanel.setLayout(null);
 		
@@ -1509,7 +1767,7 @@ public class GUI{
 		JPanel homePanel = new JPanel();
 		homePanel.setBorder(new SoftBevelBorder(BevelBorder.RAISED, null, null, null, null));
 		homePanel.setLayout(null);
-		homePanel.setBounds(1163, 208, 422, 561);
+		homePanel.setBounds(1163, 214, 422, 561);
 		getFrame().getContentPane().add(homePanel);
 		
 		JLabel lblHomeLineup = new JLabel("Home Line Up");
@@ -1684,7 +1942,7 @@ public class GUI{
 		batterPanel = new JPanel();
 		batterPanel.setBorder(new SoftBevelBorder(BevelBorder.RAISED, null, null, null, null));
 		batterPanel.setLayout(null);
-		batterPanel.setBounds(10, 780, 1575, 140);
+		batterPanel.setBounds(10, 787, 1575, 140);
 		getFrame().getContentPane().add(batterPanel);
 		
 		lblVersus = new JLabel("VS.");
@@ -1859,7 +2117,24 @@ public class GUI{
 
 			@Override
 			protected Boolean doInBackground() throws Exception {
-				game.initTeams();
+				
+				if(homeFirstNames.size() == 9 && homeLastNames.size() == 9 && awayFirstNames.size() == 9 && awayLastNames.size() == 9) {
+					game.initTeams_NewHome(homeFirstNames, homeLastNames);
+					game.initTeams_NewAway(awayFirstNames, awayLastNames);
+				}
+				else if (homeFirstNames.size() == 9 && homeLastNames.size() == 9) {
+					game.initTeams_NewHome(homeFirstNames, homeLastNames);
+					game.initTeams_Away();
+				}
+				else if(awayFirstNames.size() == 9 && awayLastNames.size() == 9) {
+					game.initTeams_Home();
+					game.initTeams_NewAway(awayFirstNames, awayLastNames);
+				}
+				else {
+					game.initTeams_Home();
+					game.initTeams_Away();
+				}
+				
 				game.initBatterPitcher();
 				
 				return true;
@@ -1921,22 +2196,5 @@ public class GUI{
 
 	public static void setBtnNextPlay(JButton btnNextPlay) {
 		GUI.btnNextPlay = btnNextPlay;
-	}
-	private static void addPopup(Component component, final JPopupMenu popup) {
-		component.addMouseListener(new MouseAdapter() {
-			public void mousePressed(MouseEvent e) {
-				if (e.isPopupTrigger()) {
-					showMenu(e);
-				}
-			}
-			public void mouseReleased(MouseEvent e) {
-				if (e.isPopupTrigger()) {
-					showMenu(e);
-				}
-			}
-			private void showMenu(MouseEvent e) {
-				popup.show(e.getComponent(), e.getX(), e.getY());
-			}
-		});
 	}
 }

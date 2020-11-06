@@ -1,4 +1,4 @@
-/////////////////////////////////////////////////////////////////////
+/////////t///////////////////////////////////////////////////////////
 //CSC2220
 //Programming Assignment 6-7
 /////////////////////////////////////////////////////////////////////
@@ -6,13 +6,11 @@
 in a baseball game are written in this class*/
 /////////////////////////////////////////////////////////////////////
 import java.security.SecureRandom;
-
+import java.util.ArrayList;
 
 public class BaseballGame{
 
-   public enum PlayResult{SINGLE, DOUBLE, TRIPLE, HOMER,
-	   WALK, STRIKEOUT, FLYOUT, SACFLY,
-	   POPOUT, GROUNDOUT, DOUBLEPLAY};
+   public enum PlayResult{SINGLE, DOUBLE, TRIPLE, HOMER, WALK, STRIKEOUT, FLYOUT, SACFLY, POPOUT, GROUNDOUT, DOUBLEPLAY};
    private static int halfInning = 1;
    private static int inning = 1;
    private static Batter emptyPlayer = new Batter("(Empty)", "", "");
@@ -370,7 +368,11 @@ public class BaseballGame{
       die1 = roll(); //roll the first die
       die2 = roll(); //roll the second die
       
-      
+      while((die1 == 5 && die2 == 6) && numberOfOuts > 1){ //rerolls the dice if a sac fly is rolled while at 2 outs
+    	  die1 = roll();
+          die2 = roll();
+      }
+
       if(die1>die2){ //swap to accommodate switch statement
          temp = die1;
          die1 = die2;
@@ -673,7 +675,7 @@ public class BaseballGame{
       }
    }
    
-   public void initTeams() {//Imports the default players to their respective teams
+   public void initTeams_Away() {//Imports the default away team
       away.importPlayer(new Batter("Trent", "Grisham", "cf"), 1, 1);
       away.importPlayer(new Batter("Wil", "Myers", "rf"), 1, 2);
       away.importPlayer(new Batter("Tony", "Gwynn", "lf"), 1, 3);
@@ -683,16 +685,45 @@ public class BaseballGame{
       away.importPlayer(new Batter("Manny", "Machado", "3b"), 1, 7);
       away.importPlayer(new Batter("Austin", "Nola", "c"), 1, 8);
       away.importPlayer(new Pitcher("Tommy", "Pham", "p"), 1, 9);
-      home.importPlayer(new Batter("Dr.", "Hatch", "cf"), 2, 1);
-      home.importPlayer(new Batter("Alex", "Dean", "rf"), 2, 2);
-      home.importPlayer(new Batter("Joe", "Bailey", "lf"), 2, 3);
-      home.importPlayer(new Batter("John", "Smith", "1b"), 2, 4);
-      home.importPlayer(new Batter("Bat", "Man", "2b"), 2, 5);
-      home.importPlayer(new Batter("Baseball", "Player", "ss"), 2, 6);
-      home.importPlayer(new Batter("Player", "One", "3b"), 2, 7);
-      home.importPlayer(new Batter("Player", "Two", "c"), 2, 8);
-      home.importPlayer(new Pitcher("Player", "Three", "p"), 2, 9);
-   }
+   } 
+   
+   public void initTeams_Home() {//Imports the default home team
+	      home.importPlayer(new Batter("Dr.", "Hatch", "cf"), 2, 1);
+	      home.importPlayer(new Batter("Alex", "Dean", "rf"), 2, 2);
+	      home.importPlayer(new Batter("Joe", "Bailey", "lf"), 2, 3);
+	      home.importPlayer(new Batter("John", "Smith", "1b"), 2, 4);
+	      home.importPlayer(new Batter("Bat", "Man", "2b"), 2, 5);
+	      home.importPlayer(new Batter("Baseball", "Player", "ss"), 2, 6);
+	      home.importPlayer(new Batter("Player", "One", "3b"), 2, 7);
+	      home.importPlayer(new Batter("Player", "Two", "c"), 2, 8);
+	      home.importPlayer(new Pitcher("Player", "Three", "p"), 2, 9);
+	   } 
+   
+   public void initTeams_NewHome(ArrayList<String> homeFirstNames, ArrayList<String> homeLastNames) {
+	      //Create new home team from input here 
+	      home.importPlayer(new Batter(homeFirstNames.get(0), homeLastNames.get(0), "cf"), 2, 1);
+	      home.importPlayer(new Batter(homeFirstNames.get(1), homeLastNames.get(1), "rf"), 2, 2);
+	      home.importPlayer(new Batter(homeFirstNames.get(2), homeLastNames.get(2), "lf"), 2, 3);
+	      home.importPlayer(new Batter(homeFirstNames.get(3), homeLastNames.get(3), "1b"), 2, 4);
+	      home.importPlayer(new Batter(homeFirstNames.get(4), homeLastNames.get(4), "2b"), 2, 5);
+	      home.importPlayer(new Batter(homeFirstNames.get(5), homeLastNames.get(5), "ss"), 2, 6);
+	      home.importPlayer(new Batter(homeFirstNames.get(6), homeLastNames.get(6), "3b"), 2, 7);
+	      home.importPlayer(new Batter(homeFirstNames.get(7), homeLastNames.get(7), "c"), 2, 8);
+	      home.importPlayer(new Pitcher(homeFirstNames.get(8), homeLastNames.get(8), "p"), 2, 9);
+}                                                           
+	   
+	   public void initTeams_NewAway(ArrayList<String> awayFirstNames, ArrayList<String> awayLastNames) {
+	      //Create new away team from input here		   
+		  away.importPlayer(new Batter(awayFirstNames.get(0), awayLastNames.get(0), "cf"), 1, 1); 
+		  away.importPlayer(new Batter(awayFirstNames.get(1), awayLastNames.get(1), "rf"), 1, 2);
+		  away.importPlayer(new Batter(awayFirstNames.get(2), awayLastNames.get(2), "lf"), 1, 3); 
+		  away.importPlayer(new Batter(awayFirstNames.get(3), awayLastNames.get(3), "1b"), 1, 4); 
+		  away.importPlayer(new Batter(awayFirstNames.get(4), awayLastNames.get(4), "2b"), 1, 5); 
+		  away.importPlayer(new Batter(awayFirstNames.get(5), awayLastNames.get(5), "ss"), 1, 6); 
+		  away.importPlayer(new Batter(awayFirstNames.get(6), awayLastNames.get(6), "3b"), 1, 7); 
+		  away.importPlayer(new Batter(awayFirstNames.get(7), awayLastNames.get(7), "c"), 1, 8); 
+		  away.importPlayer(new Pitcher(awayFirstNames.get(8), awayLastNames.get(8), "p"), 1, 9); 
+	   }
    
    public void initBatterPitcher() {//Initializes the batter v pitcher lineup GUI
       Batter b =  (Batter) away.getBatter();//Gets the batter
