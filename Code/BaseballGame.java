@@ -671,7 +671,7 @@ public class BaseballGame{
       }
    }
    
-   public void initTeams_Away() {//Imports the default players to their respective teams
+   public void initTeams_Away() {//Imports the default away team
       away.importPlayer(new Batter("Trent", "Grisham", "cf"), 1, 1);
       away.importPlayer(new Batter("Wil", "Myers", "rf"), 1, 2);
       away.importPlayer(new Batter("Tony", "Gwynn", "lf"), 1, 3);
