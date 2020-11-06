@@ -947,6 +947,8 @@ public class GUI{
 	private ArrayList<String> homeLastNames;
 	private ArrayList<String> awayFirstNames;
 	private ArrayList<String> awayLastNames;
+	private JLabel img;
+	private JLabel lblNewLabel;
 	
 	public GUI() {
 		initialize();
@@ -1502,14 +1504,14 @@ public class GUI{
 		
 		JPanel boxStatusPanel = new JPanel();
 		boxStatusPanel.setBorder(new SoftBevelBorder(BevelBorder.RAISED, null, null, null, null));
-		boxStatusPanel.setBounds(434, 214, 719, 294);
+		boxStatusPanel.setBounds(434, 214, 719, 561);
 		getFrame().getContentPane().add(boxStatusPanel);
 		boxStatusPanel.setLayout(null);
 		
 		tfSecondBase = new JTextField();
 		tfSecondBase.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		tfSecondBase.setEditable(false);
-		tfSecondBase.setBounds(347, 11, 176, 42);
+		tfSecondBase.setBounds(304, 95, 176, 42);
 		boxStatusPanel.add(tfSecondBase);
 		tfSecondBase.setColumns(10);
 		
@@ -1517,94 +1519,74 @@ public class GUI{
 		tfFirstBase.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		tfFirstBase.setEditable(false);
 		tfFirstBase.setColumns(10);
-		tfFirstBase.setBounds(528, 112, 170, 42);
+		tfFirstBase.setBounds(527, 250, 170, 42);
 		boxStatusPanel.add(tfFirstBase);
 		
 		tfThirdBase = new JTextField();
 		tfThirdBase.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		tfThirdBase.setEditable(false);
 		tfThirdBase.setColumns(10);
-		tfThirdBase.setBounds(123, 112, 176, 42);
+		tfThirdBase.setBounds(81, 250, 176, 42);
 		boxStatusPanel.add(tfThirdBase);
 		
 		tfUpToBat = new JTextField();
 		tfUpToBat.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		tfUpToBat.setEditable(false);
 		tfUpToBat.setColumns(10);
-		tfUpToBat.setBounds(347, 219, 176, 42);
+		tfUpToBat.setBounds(304, 409, 176, 42);
 		boxStatusPanel.add(tfUpToBat);
 		
-		JLabel lblUpToBat = new JLabel("Up to bat:");
-		lblUpToBat.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblUpToBat.setBounds(267, 224, 70, 28);
-		boxStatusPanel.add(lblUpToBat);
-		
-		JLabel lblFirstBase = new JLabel("First Base:");
-		lblFirstBase.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblFirstBase.setBounds(459, 120, 70, 28);
-		boxStatusPanel.add(lblFirstBase);
-		
-		JLabel lblSecondBase = new JLabel("Second Base:");
-		lblSecondBase.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblSecondBase.setBounds(254, 16, 83, 28);
-		boxStatusPanel.add(lblSecondBase);
-		
-		JLabel lblThirdBase = new JLabel("Third Base:");
-		lblThirdBase.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblThirdBase.setBounds(35, 117, 83, 28);
-		boxStatusPanel.add(lblThirdBase);
-		
 		lblBoxStatus = new JLabel("Box Status");
-		lblBoxStatus.setFont(new Font("Tahoma", Font.PLAIN, 45));
-		lblBoxStatus.setBounds(10, 11, 218, 52);
+		lblBoxStatus.setFont(new Font("Tahoma", Font.PLAIN, 40));
+		lblBoxStatus.setBounds(10, 6, 195, 52);
 		boxStatusPanel.add(lblBoxStatus);
 		
-		JPanel previousPlayPanel = new JPanel();
-		previousPlayPanel.setBorder(new SoftBevelBorder(BevelBorder.RAISED, null, null, null, null));
-		previousPlayPanel.setBounds(434, 519, 719, 256);
-		getFrame().getContentPane().add(previousPlayPanel);
-		previousPlayPanel.setLayout(null);
-		
-		JLabel lblPreviousPlay = new JLabel("Current Play:");
-		lblPreviousPlay.setFont(new Font("Tahoma", Font.PLAIN, 45));
-		lblPreviousPlay.setBounds(10, 11, 306, 76);
-		previousPlayPanel.add(lblPreviousPlay);
+		JLabel lblPreviousPlayBatter = new JLabel("Batter:");
+		lblPreviousPlayBatter.setBounds(10, 478, 62, 32);
+		boxStatusPanel.add(lblPreviousPlayBatter);
+		lblPreviousPlayBatter.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		
 		tfPreviousPlayBatter = new JTextField();
+		tfPreviousPlayBatter.setBounds(81, 481, 168, 30);
+		boxStatusPanel.add(tfPreviousPlayBatter);
 		tfPreviousPlayBatter.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		tfPreviousPlayBatter.setEditable(false);
 		tfPreviousPlayBatter.setColumns(10);
-		tfPreviousPlayBatter.setBounds(113, 102, 168, 30);
-		previousPlayPanel.add(tfPreviousPlayBatter);
-		
-		JLabel lblPreviousPlayBatter = new JLabel("Batter:");
-		lblPreviousPlayBatter.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		lblPreviousPlayBatter.setBounds(24, 99, 62, 32);
-		previousPlayPanel.add(lblPreviousPlayBatter);
 		
 		JLabel lblPreviousPlayResult = new JLabel("Play:");
+		lblPreviousPlayResult.setBounds(10, 511, 44, 32);
+		boxStatusPanel.add(lblPreviousPlayResult);
 		lblPreviousPlayResult.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		lblPreviousPlayResult.setBounds(24, 145, 44, 32);
-		previousPlayPanel.add(lblPreviousPlayResult);
 		
 		tfPreviousPlayResult = new JTextField();
+		tfPreviousPlayResult.setBounds(81, 514, 168, 30);
+		boxStatusPanel.add(tfPreviousPlayResult);
 		tfPreviousPlayResult.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		tfPreviousPlayResult.setEditable(false);
 		tfPreviousPlayResult.setColumns(10);
-		tfPreviousPlayResult.setBounds(113, 148, 168, 30);
-		previousPlayPanel.add(tfPreviousPlayResult);
 		
 		JLabel lblPreviousPlayOuts = new JLabel("Outs:");
+		lblPreviousPlayOuts.setBounds(601, 511, 48, 32);
+		boxStatusPanel.add(lblPreviousPlayOuts);
 		lblPreviousPlayOuts.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		lblPreviousPlayOuts.setBounds(24, 186, 48, 32);
-		previousPlayPanel.add(lblPreviousPlayOuts);
 		
 		tfPreviousPlayOuts = new JTextField();
+		tfPreviousPlayOuts.setBounds(661, 514, 36, 30);
+		boxStatusPanel.add(tfPreviousPlayOuts);
 		tfPreviousPlayOuts.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		tfPreviousPlayOuts.setEditable(false);
 		tfPreviousPlayOuts.setColumns(10);
-		tfPreviousPlayOuts.setBounds(113, 189, 36, 30);
-		previousPlayPanel.add(tfPreviousPlayOuts);
+		
+		JLabel img = new JLabel("");
+		img.setBackground(Color.WHITE);
+		img.setIcon(new ImageIcon(this.getClass().getResource("/baseball field.png")));
+		img.setBounds(190, 58, 400, 400);
+		boxStatusPanel.add(img);
+		
+		lblNewLabel = new JLabel("Previous Play:");
+		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 20));
+		lblNewLabel.setBounds(50, 439, 152, 27);
+		boxStatusPanel.add(lblNewLabel);
 		
 		JPanel awayPanel = new JPanel();
 		awayPanel.setBorder(new SoftBevelBorder(BevelBorder.RAISED, null, null, null, null));
@@ -2135,7 +2117,20 @@ public class GUI{
 
 			@Override
 			protected Boolean doInBackground() throws Exception {
-				game.initTeams();
+				
+				if(!homeFirstNames.isEmpty() && !awayFirstNames.isEmpty()) {
+					game.initTeams_NewTeams(awayFirstNames, awayLastNames, homeFirstNames, homeLastNames);
+				}
+				else if (!homeFirstNames.isEmpty()) {
+					game.initTeams_NewHome(homeFirstNames, homeLastNames);
+				}
+				else if(!awayFirstNames.isEmpty()) {
+					game.initTeams_NewAway(awayFirstNames, awayLastNames);
+				}
+				else {
+					game.initTeams();
+				}
+				
 				game.initBatterPitcher();
 				
 				return true;
@@ -2197,22 +2192,5 @@ public class GUI{
 
 	public static void setBtnNextPlay(JButton btnNextPlay) {
 		GUI.btnNextPlay = btnNextPlay;
-	}
-	private static void addPopup(Component component, final JPopupMenu popup) {
-		component.addMouseListener(new MouseAdapter() {
-			public void mousePressed(MouseEvent e) {
-				if (e.isPopupTrigger()) {
-					showMenu(e);
-				}
-			}
-			public void mouseReleased(MouseEvent e) {
-				if (e.isPopupTrigger()) {
-					showMenu(e);
-				}
-			}
-			private void showMenu(MouseEvent e) {
-				popup.show(e.getComponent(), e.getX(), e.getY());
-			}
-		});
 	}
 }
