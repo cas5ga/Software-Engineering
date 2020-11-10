@@ -1011,38 +1011,47 @@ public class GUI{
 		homeTeamPane.add(homeCFFirstName);
 		homeTeamPane.add(new JLabel("Center Field - Last Name: "));
 		homeTeamPane.add(homeCFLastName);
+		homeTeamPane.add(new JLabel(" "));
 		homeTeamPane.add(new JLabel("Right Field - First Name: "));
 		homeTeamPane.add(homeRFFirstName);
 		homeTeamPane.add(new JLabel("Right Field - Last Name: "));
 		homeTeamPane.add(homeRFLastName);
+		homeTeamPane.add(new JLabel(" "));
 		homeTeamPane.add(new JLabel("Left Field - First Name: "));
 		homeTeamPane.add(homeLFFirstName);
 		homeTeamPane.add(new JLabel("Left Field - Last Name: "));
 		homeTeamPane.add(homeLFLastName);
+		homeTeamPane.add(new JLabel(" "));
 		homeTeamPane.add(new JLabel("1st Base - First Name: "));
 		homeTeamPane.add(home1BFirstName);
 		homeTeamPane.add(new JLabel("1st Base - Last Name: "));
 		homeTeamPane.add(home1BLastName);
+		homeTeamPane.add(new JLabel(" "));
 		homeTeamPane.add(new JLabel("2nd Base - First Name: "));
 		homeTeamPane.add(home2BFirstName);
 		homeTeamPane.add(new JLabel("2nd Base - Last Name: "));
 		homeTeamPane.add(home2BLastName);
+		homeTeamPane.add(new JLabel(" "));
 		homeTeamPane.add(new JLabel("Short Stop - First Name: "));
 		homeTeamPane.add(homeSSFirstName);
 		homeTeamPane.add(new JLabel("Short Stop - Last Name: "));
 		homeTeamPane.add(homeSSLastName);
+		homeTeamPane.add(new JLabel(" "));
 		homeTeamPane.add(new JLabel("3rd Base - First Name: "));
 		homeTeamPane.add(home3BFirstName);
 		homeTeamPane.add(new JLabel("3rd Base - Last Name: "));
 		homeTeamPane.add(home3BLastName);
+		homeTeamPane.add(new JLabel(" "));
 		homeTeamPane.add(new JLabel("Catcher - First Name: "));
 		homeTeamPane.add(homeCFirstName);
 		homeTeamPane.add(new JLabel("Catcher - Last Name: "));
 		homeTeamPane.add(homeCLastName);
+		homeTeamPane.add(new JLabel(" "));
 		homeTeamPane.add(new JLabel("Pitcher - First Name: "));
 		homeTeamPane.add(homePFirstName);
 		homeTeamPane.add(new JLabel("Pitcher - Last Name: "));
 		homeTeamPane.add(homePLastName);
+		homeTeamPane.add(new JLabel(" "));
 		
 		//Text fields to get player names for a new away team
 		JTextField awayCFFirstName = new JTextField(25);
@@ -1071,38 +1080,47 @@ public class GUI{
 		awayTeamPane.add(awayCFFirstName);
 		awayTeamPane.add(new JLabel("Center Field - Last Name: "));
 		awayTeamPane.add(awayCFLastName);
+		awayTeamPane.add(new JLabel(" "));
 		awayTeamPane.add(new JLabel("Right Field - First Name: "));
 		awayTeamPane.add(awayRFFirstName);
 		awayTeamPane.add(new JLabel("Right Field - Last Name: "));
 		awayTeamPane.add(awayRFLastName);
+		awayTeamPane.add(new JLabel(" "));
 		awayTeamPane.add(new JLabel("Left Field - First Name: "));
 		awayTeamPane.add(awayLFFirstName);
 		awayTeamPane.add(new JLabel("Left Field - Last Name: "));
 		awayTeamPane.add(awayLFLastName);
+		awayTeamPane.add(new JLabel(" "));
 		awayTeamPane.add(new JLabel("1st Base - First Name: "));
 		awayTeamPane.add(away1BFirstName);
 		awayTeamPane.add(new JLabel("1st Base - Last Name: "));
 		awayTeamPane.add(away1BLastName);
+		awayTeamPane.add(new JLabel(" "));
 		awayTeamPane.add(new JLabel("2nd Base - First Name: "));
 		awayTeamPane.add(away2BFirstName);
 		awayTeamPane.add(new JLabel("2nd Base - Last Name: "));
 		awayTeamPane.add(away2BLastName);
+		awayTeamPane.add(new JLabel(" "));
 		awayTeamPane.add(new JLabel("Short Stop - First Name: "));
 		awayTeamPane.add(awaySSFirstName);
 		awayTeamPane.add(new JLabel("Short Stop - Last Name: "));
 		awayTeamPane.add(awaySSLastName);
+		awayTeamPane.add(new JLabel(" "));
 		awayTeamPane.add(new JLabel("3rd Base - First Name: "));
 		awayTeamPane.add(away3BFirstName);
 		awayTeamPane.add(new JLabel("3rd Base - Last Name: "));
 		awayTeamPane.add(away3BLastName);
+		awayTeamPane.add(new JLabel(" "));
 		awayTeamPane.add(new JLabel("Catcher - First Name: "));
 		awayTeamPane.add(awayCFirstName);
 		awayTeamPane.add(new JLabel("Catcher - Last Name: "));
 		awayTeamPane.add(awayCLastName);
+		awayTeamPane.add(new JLabel(" "));
 		awayTeamPane.add(new JLabel("Pitcher - First Name: "));
 		awayTeamPane.add(awayPFirstName);
 		awayTeamPane.add(new JLabel("Pitcher - Last Name: "));
 		awayTeamPane.add(awayPLastName);
+		awayTeamPane.add(new JLabel(" "));
 		
 		//ArrayLists to store home team first and last names
 		homeFirstNames = new ArrayList<String>();
@@ -2118,17 +2136,21 @@ public class GUI{
 			@Override
 			protected Boolean doInBackground() throws Exception {
 				
-				if(!homeFirstNames.isEmpty() && !awayFirstNames.isEmpty()) {
-					game.initTeams_NewTeams(awayFirstNames, awayLastNames, homeFirstNames, homeLastNames);
-				}
-				else if (!homeFirstNames.isEmpty()) {
+				if(homeFirstNames.size() == 9 && homeLastNames.size() == 9 && awayFirstNames.size() == 9 && awayLastNames.size() == 9 && !homeFirstNames.contains("") && !homeLastNames.contains("") && !awayFirstNames.contains("") && !awayLastNames.contains("")) {
 					game.initTeams_NewHome(homeFirstNames, homeLastNames);
+					game.initTeams_NewAway(awayFirstNames, awayLastNames);
 				}
-				else if(!awayFirstNames.isEmpty()) {
+				else if (homeFirstNames.size() == 9 && homeLastNames.size() == 9 && !homeFirstNames.contains("") && !homeLastNames.contains("")) {
+					game.initTeams_NewHome(homeFirstNames, homeLastNames);
+					game.initTeams_Away();
+				}
+				else if (awayFirstNames.size() == 9 && awayLastNames.size() == 9 && !awayFirstNames.contains("") && !awayLastNames.contains("")) {
+					game.initTeams_Home();
 					game.initTeams_NewAway(awayFirstNames, awayLastNames);
 				}
 				else {
-					game.initTeams();
+					game.initTeams_Home();
+					game.initTeams_Away();
 				}
 				
 				game.initBatterPitcher();
