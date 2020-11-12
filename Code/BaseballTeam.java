@@ -64,6 +64,11 @@ public class BaseballTeam{
       }
    }
    
+   //gets a batter based on their position on the team (batter number)
+   public Batter getSpecificBatter(int num) {
+	   return (Batter) roster.get(num);
+   }
+   
    public Batter getPreviousBatter(){
 	      if(marker - 2 != -1 && marker != 10){
 	         return (Batter) roster.get(marker - 2);
