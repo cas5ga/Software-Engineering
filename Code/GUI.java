@@ -1780,7 +1780,178 @@ public class GUI{
 		lblAwayERA.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		lblAwayERA.setBounds(350, 476, 35, 34);
 		awayPanel.add(lblAwayERA);
+		
+		
+		
+		//Creates a new frame to display away team batter stats
+		JFrame awayBatterStatsFrame = new JFrame("Away Team Player Stats");
+		awayBatterStatsFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		//Creates a new frame to display away team pitcher stats
+		JFrame awayPitcherStatsFrame = new JFrame("Away Team Player Stats");
+		awayPitcherStatsFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		//Displays stats for batter 1
+		tfAwayBatter1.addMouseListener(new MouseAdapter() {
+			public void mouseClicked(MouseEvent e) {
+				JOptionPane.showMessageDialog(awayBatterStatsFrame, "Batter Name: " + BaseballGame.getAwayTeam().getSpecificBatter(0).getFirstName()
+						+ " " + BaseballGame.getAwayTeam().getSpecificBatter(0).getLastName()
+						+ "\nHits: " + BaseballGame.getAwayTeam().getSpecificBatter(0).getHits()
+						+ "\nRuns: " + BaseballGame.getAwayTeam().getSpecificBatter(0).getRunsScored()
+						+ "\nRBIs: " + BaseballGame.getAwayTeam().getSpecificBatter(0).getRunsBattedIn()
+						+ "\nDoubles: " + BaseballGame.getAwayTeam().getSpecificBatter(0).getDoubles()
+						+ "\nTriples: " + BaseballGame.getAwayTeam().getSpecificBatter(0).getTriples()
+						+ "\nHomers: " + BaseballGame.getAwayTeam().getSpecificBatter(0).getHomers()
+						+ "\nStrikeouts: " + BaseballGame.getAwayTeam().getSpecificBatter(0).getStrikeouts()
+						+ "\nWalks: " + BaseballGame.getAwayTeam().getSpecificBatter(0).getWalks(),
+						"Away Team Batter Stats", JOptionPane.PLAIN_MESSAGE);
+			}
+			
+		});
+		
+		//Displays stats for batter 2
+		tfAwayBatter2.addMouseListener(new MouseAdapter() {
+			public void mouseClicked(MouseEvent e) {
+				JOptionPane.showMessageDialog(awayBatterStatsFrame, "Batter Name: " + BaseballGame.getAwayTeam().getSpecificBatter(1).getFirstName()
+						+ " " + BaseballGame.getAwayTeam().getSpecificBatter(1).getLastName()
+						+ "\nHits: " + BaseballGame.getAwayTeam().getSpecificBatter(1).getHits()
+						+ "\nRuns: " + BaseballGame.getAwayTeam().getSpecificBatter(1).getRunsScored()
+						+ "\nRBIs: " + BaseballGame.getAwayTeam().getSpecificBatter(1).getRunsBattedIn()
+						+ "\nDoubles: " + BaseballGame.getAwayTeam().getSpecificBatter(1).getDoubles()
+						+ "\nTriples: " + BaseballGame.getAwayTeam().getSpecificBatter(1).getTriples()
+						+ "\nHomers: " + BaseballGame.getAwayTeam().getSpecificBatter(1).getHomers()
+						+ "\nStrikeouts: " + BaseballGame.getAwayTeam().getSpecificBatter(1).getStrikeouts()
+						+ "\nWalks: " + BaseballGame.getAwayTeam().getSpecificBatter(1).getWalks(),
+						"Away Team Batter Stats", JOptionPane.PLAIN_MESSAGE);
+			}
+			
+		});
+		
+		//Displays stats for batter 3
+		tfAwayBatter3.addMouseListener(new MouseAdapter() {
+			public void mouseClicked(MouseEvent e) {
+				JOptionPane.showMessageDialog(awayBatterStatsFrame, "Batter Name: " + BaseballGame.getAwayTeam().getSpecificBatter(2).getFirstName()
+						+ " " + BaseballGame.getAwayTeam().getSpecificBatter(2).getLastName()
+						+ "\nHits: " + BaseballGame.getAwayTeam().getSpecificBatter(2).getHits()
+						+ "\nRuns: " + BaseballGame.getAwayTeam().getSpecificBatter(2).getRunsScored()
+						+ "\nRBIs: " + BaseballGame.getAwayTeam().getSpecificBatter(2).getRunsBattedIn()
+						+ "\nDoubles: " + BaseballGame.getAwayTeam().getSpecificBatter(2).getDoubles()
+						+ "\nTriples: " + BaseballGame.getAwayTeam().getSpecificBatter(2).getTriples()
+						+ "\nHomers: " + BaseballGame.getAwayTeam().getSpecificBatter(2).getHomers()
+						+ "\nStrikeouts: " + BaseballGame.getAwayTeam().getSpecificBatter(2).getStrikeouts()
+						+ "\nWalks: " + BaseballGame.getAwayTeam().getSpecificBatter(2).getWalks(),
+						"Away Team Batter Stats", JOptionPane.PLAIN_MESSAGE);
+			}
+			
+		});
+		
+		//Displays stats for batter 4
+		tfAwayBatter4.addMouseListener(new MouseAdapter() {
+			public void mouseClicked(MouseEvent e) {
+				JOptionPane.showMessageDialog(awayBatterStatsFrame, "Batter Name: " + BaseballGame.getAwayTeam().getSpecificBatter(3).getFirstName()
+						+ " " + BaseballGame.getAwayTeam().getSpecificBatter(3).getLastName()
+						+ "\nHits: " + BaseballGame.getAwayTeam().getSpecificBatter(3).getHits()
+						+ "\nRuns: " + BaseballGame.getAwayTeam().getSpecificBatter(3).getRunsScored()
+						+ "\nRBIs: " + BaseballGame.getAwayTeam().getSpecificBatter(3).getRunsBattedIn()
+						+ "\nDoubles: " + BaseballGame.getAwayTeam().getSpecificBatter(3).getDoubles()
+						+ "\nTriples: " + BaseballGame.getAwayTeam().getSpecificBatter(3).getTriples()
+						+ "\nHomers: " + BaseballGame.getAwayTeam().getSpecificBatter(3).getHomers()
+						+ "\nStrikeouts: " + BaseballGame.getAwayTeam().getSpecificBatter(3).getStrikeouts()
+						+ "\nWalks: " + BaseballGame.getAwayTeam().getSpecificBatter(3).getWalks(),
+						"Away Team Batter Stats", JOptionPane.PLAIN_MESSAGE);
+			}
+			
+		});
+		
+		//Displays stats for batter 5
+		tfAwayBatter5.addMouseListener(new MouseAdapter() {
+			public void mouseClicked(MouseEvent e) {
+				JOptionPane.showMessageDialog(awayBatterStatsFrame, "Batter Name: " + BaseballGame.getAwayTeam().getSpecificBatter(4).getFirstName()
+						+ " " + BaseballGame.getAwayTeam().getSpecificBatter(4).getLastName()
+						+ "\nHits: " + BaseballGame.getAwayTeam().getSpecificBatter(4).getHits()
+						+ "\nRuns: " + BaseballGame.getAwayTeam().getSpecificBatter(4).getRunsScored()
+						+ "\nRBIs: " + BaseballGame.getAwayTeam().getSpecificBatter(4).getRunsBattedIn()
+						+ "\nDoubles: " + BaseballGame.getAwayTeam().getSpecificBatter(4).getDoubles()
+						+ "\nTriples: " + BaseballGame.getAwayTeam().getSpecificBatter(4).getTriples()
+						+ "\nHomers: " + BaseballGame.getAwayTeam().getSpecificBatter(4).getHomers()
+						+ "\nStrikeouts: " + BaseballGame.getAwayTeam().getSpecificBatter(4).getStrikeouts()
+						+ "\nWalks: " + BaseballGame.getAwayTeam().getSpecificBatter(4).getWalks(),
+						"Away Team Batter Stats", JOptionPane.PLAIN_MESSAGE);
+			}
+			
+		});
+		
+		//Displays stats for batter 6
+		tfAwayBatter6.addMouseListener(new MouseAdapter() {
+			public void mouseClicked(MouseEvent e) {
+				JOptionPane.showMessageDialog(awayBatterStatsFrame, "Batter Name: " + BaseballGame.getAwayTeam().getSpecificBatter(5).getFirstName()
+						+ " " + BaseballGame.getAwayTeam().getSpecificBatter(5).getLastName()
+						+ "\nHits: " + BaseballGame.getAwayTeam().getSpecificBatter(5).getHits()
+						+ "\nRuns: " + BaseballGame.getAwayTeam().getSpecificBatter(5).getRunsScored()
+						+ "\nRBIs: " + BaseballGame.getAwayTeam().getSpecificBatter(5).getRunsBattedIn()
+						+ "\nDoubles: " + BaseballGame.getAwayTeam().getSpecificBatter(5).getDoubles()
+						+ "\nTriples: " + BaseballGame.getAwayTeam().getSpecificBatter(5).getTriples()
+						+ "\nHomers: " + BaseballGame.getAwayTeam().getSpecificBatter(5).getHomers()
+						+ "\nStrikeouts: " + BaseballGame.getAwayTeam().getSpecificBatter(5).getStrikeouts()
+						+ "\nWalks: " + BaseballGame.getAwayTeam().getSpecificBatter(5).getWalks(),
+						"Away Team Batter Stats", JOptionPane.PLAIN_MESSAGE);
+			}
+			
+		});
+		
+		//Displays stats for batter 7
+		tfAwayBatter7.addMouseListener(new MouseAdapter() {
+			public void mouseClicked(MouseEvent e) {
+				JOptionPane.showMessageDialog(awayBatterStatsFrame, "Batter Name: " + BaseballGame.getAwayTeam().getSpecificBatter(6).getFirstName()
+						+ " " + BaseballGame.getAwayTeam().getSpecificBatter(6).getLastName()
+						+ "\nHits: " + BaseballGame.getAwayTeam().getSpecificBatter(6).getHits()
+						+ "\nRuns: " + BaseballGame.getAwayTeam().getSpecificBatter(6).getRunsScored()
+						+ "\nRBIs: " + BaseballGame.getAwayTeam().getSpecificBatter(6).getRunsBattedIn()
+						+ "\nDoubles: " + BaseballGame.getAwayTeam().getSpecificBatter(6).getDoubles()
+						+ "\nTriples: " + BaseballGame.getAwayTeam().getSpecificBatter(6).getTriples()
+						+ "\nHomers: " + BaseballGame.getAwayTeam().getSpecificBatter(6).getHomers()
+						+ "\nStrikeouts: " + BaseballGame.getAwayTeam().getSpecificBatter(6).getStrikeouts()
+						+ "\nWalks: " + BaseballGame.getAwayTeam().getSpecificBatter(6).getWalks(),
+						"Away Team Batter Stats", JOptionPane.PLAIN_MESSAGE);
+			}
+			
+		});
+		
+		//Displays stats for batter 8
+		tfAwayBatter8.addMouseListener(new MouseAdapter() {
+			public void mouseClicked(MouseEvent e) {
+				JOptionPane.showMessageDialog(awayBatterStatsFrame, "Batter Name: " + BaseballGame.getAwayTeam().getSpecificBatter(7).getFirstName()
+						+ " " + BaseballGame.getAwayTeam().getSpecificBatter(7).getLastName()
+						+ "\nHits: " + BaseballGame.getAwayTeam().getSpecificBatter(7).getHits()
+						+ "\nRuns: " + BaseballGame.getAwayTeam().getSpecificBatter(7).getRunsScored()
+						+ "\nRBIs: " + BaseballGame.getAwayTeam().getSpecificBatter(7).getRunsBattedIn()
+						+ "\nDoubles: " + BaseballGame.getAwayTeam().getSpecificBatter(7).getDoubles()
+						+ "\nTriples: " + BaseballGame.getAwayTeam().getSpecificBatter(7).getTriples()
+						+ "\nHomers: " + BaseballGame.getAwayTeam().getSpecificBatter(7).getHomers()
+						+ "\nStrikeouts: " + BaseballGame.getAwayTeam().getSpecificBatter(7).getStrikeouts()
+						+ "\nWalks: " + BaseballGame.getAwayTeam().getSpecificBatter(7).getWalks(),
+						"Away Team Batter Stats", JOptionPane.PLAIN_MESSAGE);
+			}
+			
+		});
+		
+		//Displays stats for the pitcher
+		tfAwayPitcher.addMouseListener(new MouseAdapter() {
+			public void mouseClicked(MouseEvent e) {
+				JOptionPane.showMessageDialog(awayPitcherStatsFrame, "Pitcher Name: " + BaseballGame.getAwayTeam().getPitcher().getFirstName()
+						+ " " + BaseballGame.getAwayTeam().getPitcher().getLastName()
+						+ "\nEarned Runs: " + BaseballGame.getAwayTeam().getPitcher().getEarnedRuns()
+						+ "\nEarned Run Average: " + BaseballGame.getAwayTeam().getPitcher().calcEarnedRunAvg()
+						+ "\nStrikeouts: " + BaseballGame.getAwayTeam().getPitcher().getStrikeouts()
+						+ "\nWalks: " + BaseballGame.getAwayTeam().getPitcher().getWalks()
+						+ "\nWHIP: " + BaseballGame.getAwayTeam().getPitcher().calcWhip(),
+						"Away Team Pitcher Stats", JOptionPane.PLAIN_MESSAGE);
 
+			}
+			
+		});
+
+		
 		
 		JPanel homePanel = new JPanel();
 		homePanel.setBorder(new SoftBevelBorder(BevelBorder.RAISED, null, null, null, null));
@@ -1956,6 +2127,176 @@ public class GUI{
 		lblHomeERA.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		lblHomeERA.setBounds(345, 476, 35, 34);
 		homePanel.add(lblHomeERA);
+		
+		
+		//Creates a new frame to display home team batter stats
+		JFrame homeBatterStatsFrame = new JFrame("Home Team Player Stats");
+		homeBatterStatsFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		//Creates a new frame to display home team pitcher stats
+		JFrame homePitcherStatsFrame = new JFrame("Home Team Player Stats");
+		homePitcherStatsFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		//Displays stats for batter 1
+		tfHomeBatter1.addMouseListener(new MouseAdapter() {
+			public void mouseClicked(MouseEvent e) {
+				JOptionPane.showMessageDialog(homeBatterStatsFrame, "Batter Name: " + BaseballGame.getHomeTeam().getSpecificBatter(0).getFirstName()
+						+ " " + BaseballGame.getHomeTeam().getSpecificBatter(0).getLastName()
+						+ "\nHits: " + BaseballGame.getHomeTeam().getSpecificBatter(0).getHits()
+						+ "\nRuns: " + BaseballGame.getHomeTeam().getSpecificBatter(0).getRunsScored()
+						+ "\nRBIs: " + BaseballGame.getHomeTeam().getSpecificBatter(0).getRunsBattedIn()
+						+ "\nDoubles: " + BaseballGame.getHomeTeam().getSpecificBatter(0).getDoubles()
+						+ "\nTriples: " + BaseballGame.getHomeTeam().getSpecificBatter(0).getTriples()
+						+ "\nHomers: " + BaseballGame.getHomeTeam().getSpecificBatter(0).getHomers()
+						+ "\nStrikeouts: " + BaseballGame.getHomeTeam().getSpecificBatter(0).getStrikeouts()
+						+ "\nWalks: " + BaseballGame.getHomeTeam().getSpecificBatter(0).getWalks(),
+						"Home Team Batter Stats", JOptionPane.PLAIN_MESSAGE);
+			}
+			
+		});
+		
+		//Displays stats for batter 2
+		tfHomeBatter2.addMouseListener(new MouseAdapter() {
+			public void mouseClicked(MouseEvent e) {
+				JOptionPane.showMessageDialog(homeBatterStatsFrame, "Batter Name: " + BaseballGame.getHomeTeam().getSpecificBatter(1).getFirstName()
+						+ " " + BaseballGame.getHomeTeam().getSpecificBatter(1).getLastName()
+						+ "\nHits: " + BaseballGame.getHomeTeam().getSpecificBatter(1).getHits()
+						+ "\nRuns: " + BaseballGame.getHomeTeam().getSpecificBatter(1).getRunsScored()
+						+ "\nRBIs: " + BaseballGame.getHomeTeam().getSpecificBatter(1).getRunsBattedIn()
+						+ "\nDoubles: " + BaseballGame.getHomeTeam().getSpecificBatter(1).getDoubles()
+						+ "\nTriples: " + BaseballGame.getHomeTeam().getSpecificBatter(1).getTriples()
+						+ "\nHomers: " + BaseballGame.getHomeTeam().getSpecificBatter(1).getHomers()
+						+ "\nStrikeouts: " + BaseballGame.getHomeTeam().getSpecificBatter(1).getStrikeouts()
+						+ "\nWalks: " + BaseballGame.getHomeTeam().getSpecificBatter(1).getWalks(),
+						"Home Team Batter Stats", JOptionPane.PLAIN_MESSAGE);
+			}
+			
+		});
+		
+		//Displays stats for batter 3
+		tfHomeBatter3.addMouseListener(new MouseAdapter() {
+			public void mouseClicked(MouseEvent e) {
+				JOptionPane.showMessageDialog(homeBatterStatsFrame, "Batter Name: " + BaseballGame.getHomeTeam().getSpecificBatter(2).getFirstName()
+						+ " " + BaseballGame.getHomeTeam().getSpecificBatter(2).getLastName()
+						+ "\nHits: " + BaseballGame.getHomeTeam().getSpecificBatter(2).getHits()
+						+ "\nRuns: " + BaseballGame.getHomeTeam().getSpecificBatter(2).getRunsScored()
+						+ "\nRBIs: " + BaseballGame.getHomeTeam().getSpecificBatter(2).getRunsBattedIn()
+						+ "\nDoubles: " + BaseballGame.getHomeTeam().getSpecificBatter(2).getDoubles()
+						+ "\nTriples: " + BaseballGame.getHomeTeam().getSpecificBatter(2).getTriples()
+						+ "\nHomers: " + BaseballGame.getHomeTeam().getSpecificBatter(2).getHomers()
+						+ "\nStrikeouts: " + BaseballGame.getHomeTeam().getSpecificBatter(2).getStrikeouts()
+						+ "\nWalks: " + BaseballGame.getHomeTeam().getSpecificBatter(2).getWalks(),
+						"Home Team Batter Stats", JOptionPane.PLAIN_MESSAGE);
+			}
+			
+		});
+		
+		//Displays stats for batter 4
+		tfHomeBatter4.addMouseListener(new MouseAdapter() {
+			public void mouseClicked(MouseEvent e) {
+				JOptionPane.showMessageDialog(homeBatterStatsFrame, "Batter Name: " + BaseballGame.getHomeTeam().getSpecificBatter(3).getFirstName()
+						+ " " + BaseballGame.getHomeTeam().getSpecificBatter(3).getLastName()
+						+ "\nHits: " + BaseballGame.getHomeTeam().getSpecificBatter(3).getHits()
+						+ "\nRuns: " + BaseballGame.getHomeTeam().getSpecificBatter(3).getRunsScored()
+						+ "\nRBIs: " + BaseballGame.getHomeTeam().getSpecificBatter(3).getRunsBattedIn()
+						+ "\nDoubles: " + BaseballGame.getHomeTeam().getSpecificBatter(3).getDoubles()
+						+ "\nTriples: " + BaseballGame.getHomeTeam().getSpecificBatter(3).getTriples()
+						+ "\nHomers: " + BaseballGame.getHomeTeam().getSpecificBatter(3).getHomers()
+						+ "\nStrikeouts: " + BaseballGame.getHomeTeam().getSpecificBatter(3).getStrikeouts()
+						+ "\nWalks: " + BaseballGame.getHomeTeam().getSpecificBatter(3).getWalks(),
+						"Home Team Batter Stats", JOptionPane.PLAIN_MESSAGE);
+			}
+			
+		});
+		
+		//Displays stats for batter 5
+		tfHomeBatter5.addMouseListener(new MouseAdapter() {
+			public void mouseClicked(MouseEvent e) {
+				JOptionPane.showMessageDialog(homeBatterStatsFrame, "Batter Name: " + BaseballGame.getHomeTeam().getSpecificBatter(4).getFirstName()
+						+ " " + BaseballGame.getHomeTeam().getSpecificBatter(4).getLastName()
+						+ "\nHits: " + BaseballGame.getHomeTeam().getSpecificBatter(4).getHits()
+						+ "\nRuns: " + BaseballGame.getHomeTeam().getSpecificBatter(4).getRunsScored()
+						+ "\nRBIs: " + BaseballGame.getHomeTeam().getSpecificBatter(4).getRunsBattedIn()
+						+ "\nDoubles: " + BaseballGame.getHomeTeam().getSpecificBatter(4).getDoubles()
+						+ "\nTriples: " + BaseballGame.getHomeTeam().getSpecificBatter(4).getTriples()
+						+ "\nHomers: " + BaseballGame.getHomeTeam().getSpecificBatter(4).getHomers()
+						+ "\nStrikeouts: " + BaseballGame.getHomeTeam().getSpecificBatter(4).getStrikeouts()
+						+ "\nWalks: " + BaseballGame.getHomeTeam().getSpecificBatter(4).getWalks(),
+						"Home Team Batter Stats", JOptionPane.PLAIN_MESSAGE);
+			}
+			
+		});
+		
+		//Displays stats for batter 6
+		tfHomeBatter6.addMouseListener(new MouseAdapter() {
+			public void mouseClicked(MouseEvent e) {
+				JOptionPane.showMessageDialog(homeBatterStatsFrame, "Batter Name: " + BaseballGame.getHomeTeam().getSpecificBatter(5).getFirstName()
+						+ " " + BaseballGame.getHomeTeam().getSpecificBatter(5).getLastName()
+						+ "\nHits: " + BaseballGame.getHomeTeam().getSpecificBatter(5).getHits()
+						+ "\nRuns: " + BaseballGame.getHomeTeam().getSpecificBatter(5).getRunsScored()
+						+ "\nRBIs: " + BaseballGame.getHomeTeam().getSpecificBatter(5).getRunsBattedIn()
+						+ "\nDoubles: " + BaseballGame.getHomeTeam().getSpecificBatter(5).getDoubles()
+						+ "\nTriples: " + BaseballGame.getHomeTeam().getSpecificBatter(5).getTriples()
+						+ "\nHomers: " + BaseballGame.getHomeTeam().getSpecificBatter(5).getHomers()
+						+ "\nStrikeouts: " + BaseballGame.getHomeTeam().getSpecificBatter(5).getStrikeouts()
+						+ "\nWalks: " + BaseballGame.getHomeTeam().getSpecificBatter(5).getWalks(),
+						"Home Team Batter Stats", JOptionPane.PLAIN_MESSAGE);
+			}
+			
+		});
+		
+		//Displays stats for batter 7
+		tfHomeBatter7.addMouseListener(new MouseAdapter() {
+			public void mouseClicked(MouseEvent e) {
+				JOptionPane.showMessageDialog(homeBatterStatsFrame, "Batter Name: " + BaseballGame.getHomeTeam().getSpecificBatter(6).getFirstName()
+						+ " " + BaseballGame.getHomeTeam().getSpecificBatter(6).getLastName()
+						+ "\nHits: " + BaseballGame.getHomeTeam().getSpecificBatter(6).getHits()
+						+ "\nRuns: " + BaseballGame.getHomeTeam().getSpecificBatter(6).getRunsScored()
+						+ "\nRBIs: " + BaseballGame.getHomeTeam().getSpecificBatter(6).getRunsBattedIn()
+						+ "\nDoubles: " + BaseballGame.getHomeTeam().getSpecificBatter(6).getDoubles()
+						+ "\nTriples: " + BaseballGame.getHomeTeam().getSpecificBatter(6).getTriples()
+						+ "\nHomers: " + BaseballGame.getHomeTeam().getSpecificBatter(6).getHomers()
+						+ "\nStrikeouts: " + BaseballGame.getHomeTeam().getSpecificBatter(6).getStrikeouts()
+						+ "\nWalks: " + BaseballGame.getHomeTeam().getSpecificBatter(6).getWalks(),
+						"Home Team Batter Stats", JOptionPane.PLAIN_MESSAGE);
+			}
+			
+		});
+		
+		//Displays stats for batter 8
+		tfHomeBatter8.addMouseListener(new MouseAdapter() {
+			public void mouseClicked(MouseEvent e) {
+				JOptionPane.showMessageDialog(homeBatterStatsFrame, "Batter Name: " + BaseballGame.getHomeTeam().getSpecificBatter(7).getFirstName()
+						+ " " + BaseballGame.getHomeTeam().getSpecificBatter(7).getLastName()
+						+ "\nHits: " + BaseballGame.getHomeTeam().getSpecificBatter(7).getHits()
+						+ "\nRuns: " + BaseballGame.getHomeTeam().getSpecificBatter(7).getRunsScored()
+						+ "\nRBIs: " + BaseballGame.getHomeTeam().getSpecificBatter(7).getRunsBattedIn()
+						+ "\nDoubles: " + BaseballGame.getHomeTeam().getSpecificBatter(7).getDoubles()
+						+ "\nTriples: " + BaseballGame.getHomeTeam().getSpecificBatter(7).getTriples()
+						+ "\nHomers: " + BaseballGame.getHomeTeam().getSpecificBatter(7).getHomers()
+						+ "\nStrikeouts: " + BaseballGame.getHomeTeam().getSpecificBatter(7).getStrikeouts()
+						+ "\nWalks: " + BaseballGame.getHomeTeam().getSpecificBatter(7).getWalks(),
+						"Home Team Batter Stats", JOptionPane.PLAIN_MESSAGE);
+			}
+			
+		});
+		
+		//Displays stats for the pitcher
+		tfHomePitcher.addMouseListener(new MouseAdapter() {
+			public void mouseClicked(MouseEvent e) {
+				JOptionPane.showMessageDialog(homePitcherStatsFrame, "Pitcher Name: " + BaseballGame.getHomeTeam().getPitcher().getFirstName()
+						+ " " + BaseballGame.getHomeTeam().getPitcher().getLastName()
+						+ "\nEarned Runs: " + BaseballGame.getHomeTeam().getPitcher().getEarnedRuns()
+						+ "\nEarned Run Average: " + BaseballGame.getHomeTeam().getPitcher().calcEarnedRunAvg()
+						+ "\nStrikeouts: " + BaseballGame.getHomeTeam().getPitcher().getStrikeouts()
+						+ "\nWalks: " + BaseballGame.getHomeTeam().getPitcher().getWalks()
+						+ "\nWHIP: " + BaseballGame.getHomeTeam().getPitcher().calcWhip(),
+						"Home Team Pitcher Stats", JOptionPane.PLAIN_MESSAGE);
+
+			}
+			
+		});
+		
 		
 		batterPanel = new JPanel();
 		batterPanel.setBorder(new SoftBevelBorder(BevelBorder.RAISED, null, null, null, null));
