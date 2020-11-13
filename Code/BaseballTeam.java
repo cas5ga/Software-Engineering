@@ -8,6 +8,8 @@ Several print methods as well as an array of baseball players arein
 this class*/
 /////////////////////////////////////////////////////////////////////
 import java.util.ArrayList;
+import java.io.FileWriter;
+import java.io.IOException;
 
 public class BaseballTeam{
 
@@ -62,11 +64,6 @@ public class BaseballTeam{
       } else {
          return (Batter) roster.get(0);
       }
-   }
-   
-   //gets a batter based on their position on the team (batter number)
-   public Batter getSpecificBatter(int num) {
-	   return (Batter) roster.get(num);
    }
    
    public Batter getPreviousBatter(){
@@ -164,6 +161,61 @@ public class BaseballTeam{
   
    public ArrayList<BaseballPlayer> getRoster(){
       return roster;
+   }
+   
+   public void saveTeam(String filename) {//creates a file containing every player on the team and their stats
+	   try {
+		   FileWriter myWriter = new FileWriter(filename);
+		   
+		   //writes batter data
+		   for(int i = 0; i < 8; i++) {
+			   myWriter.write(((Batter)roster.get(i)).firstName);
+			   myWriter.write(' ');
+			   myWriter.write(((Batter)roster.get(i)).lastName);
+			   myWriter.write(' ');
+			   myWriter.write(((Batter)roster.get(i)).position);
+			   myWriter.write(' ');
+			   myWriter.write(String.valueOf(((Batter)roster.get(i)).getAtBats()));
+			   myWriter.write(' ');
+			   myWriter.write(String.valueOf(((Batter)roster.get(i)).getHits()));
+			   myWriter.write(' ');
+			   myWriter.write(String.valueOf(((Batter)roster.get(i)).getDoubles()));
+			   myWriter.write(' ');
+			   myWriter.write(String.valueOf(((Batter)roster.get(i)).getTriples()));
+			   myWriter.write(' ');
+			   myWriter.write(String.valueOf(((Batter)roster.get(i)).getHomers()));
+			   myWriter.write(' ');
+			   myWriter.write(String.valueOf(((Batter)roster.get(i)).getWalks()));
+			   myWriter.write(' ');
+			   myWriter.write(String.valueOf(((Batter)roster.get(i)).getSacFlies()));
+			   myWriter.write(' ');
+			   myWriter.write(String.valueOf(((Batter)roster.get(i)).getRunsScored()));
+			   myWriter.write(' ');
+			   myWriter.write(String.valueOf(((Batter)roster.get(i)).getRunsBattedIn()));
+			   myWriter.write(' ');
+			   myWriter.write(String.valueOf(((Batter)roster.get(i)).getStrikeouts()));
+			   myWriter.write('\n');
+		   }
+		   
+		   //writes pitcher data
+		   myWriter.write(((Pitcher)roster.get(8)).firstName);
+		   myWriter.write(' ');
+		   myWriter.write(((Pitcher)roster.get(8)).lastName);
+		   myWriter.write(' ');
+		   myWriter.write(((Pitcher)roster.get(8)).position);
+		   myWriter.write(' ');
+		   myWriter.write(String.valueOf(((Pitcher)roster.get(8)).getEarnedRuns()));
+		   myWriter.write(' ');
+		   myWriter.write(String.valueOf(((Pitcher)roster.get(8)).getOuts()));
+		   myWriter.write(' ');
+		   myWriter.write(String.valueOf(((Pitcher)roster.get(8)).getInningsPitched()));
+		   
+		   myWriter.close();
+		   System.out.println("Successfully wrote to the file.");
+	   } catch (IOException e) {
+		   System.out.println("An error occurred.");
+		   e.printStackTrace();
+	   }
    }
 
    private String locationName, teamName;
