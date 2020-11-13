@@ -211,9 +211,7 @@ public class BaseballTeam{
 		   myWriter.write(String.valueOf(((Pitcher)roster.get(8)).getInningsPitched()));
 		   
 		   myWriter.close();
-		   System.out.println("Successfully wrote to the file.");
 	   } catch (IOException e) {
-		   System.out.println("An error occurred.");
 		   e.printStackTrace();
 	   }
    }
