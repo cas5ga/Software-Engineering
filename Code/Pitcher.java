@@ -15,10 +15,11 @@ public class Pitcher extends BaseballPlayer{
    private int inningsPitched = 0;
    
    //Constructor, with all arguments
-   public Pitcher(String fn, String ln, String p, int o, int ip) {
-	   super(fn, ln, p);
-	   setOuts(o);
-	   setInningsPitched(ip);
+   public Pitcher(String fn, String ln, String p, int er, int o, int ip) {
+       super(fn, ln, p);
+       setEarnedRuns(er);
+       setOuts(o);
+       setInningsPitched(ip);
    }
    
    public Pitcher(String f, String l, String p){
