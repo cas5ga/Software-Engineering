@@ -14,10 +14,16 @@ public class Pitcher extends BaseballPlayer{
    int inningCounter = 0;
    private int inningsPitched = 0;
    
+   //Constructor, with all arguments
+   public Pitcher(String fn, String ln, String p, int o, int ip) {
+	   super(fn, ln, p);
+	   setOuts(o);
+	   setInningsPitched(ip);
+   }
+   
    public Pitcher(String f, String l, String p){
       super(f, l, p);
    }
-   
    
    /////////////////GETTERS/////////////////
    public int getEarnedRuns(){//Earned Runs
@@ -39,6 +45,9 @@ public class Pitcher extends BaseballPlayer{
    }
    public void setInningsPitched(int i){//Innings Pitched
       inningsPitched = i;
+   }
+   public void setOuts(int o) {
+	  outs = o;
    }
    
    /////////////////HELPER METHODS/////////////////
