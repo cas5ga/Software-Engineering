@@ -112,6 +112,10 @@ public class Batter extends BaseballPlayer{
       return runsBattedIn;
    }
    
+   public int getStrikeouts(){
+	  return strikeouts;
+   }
+   
   //incrementers
    public void incrementAtBats(){ //change all incrementers from private to public
       atBats++;
