@@ -38,6 +38,9 @@ public class Pitcher extends BaseballPlayer{
       }
       return inningsPitched;
    }
+   public int getOuts() {
+	   return outs;
+   }
    
    /////////////////SETTERS/////////////////
    public void setEarnedRuns(int e){//Earned Runs
