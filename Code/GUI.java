@@ -315,7 +315,11 @@ public class GUI{
 	public void setTfAwayAvg4(JTextField tfAwayAvg4) {
 		this.tfAwayAvg4 = tfAwayAvg4;
 	}
-
+	
+	public static JTextField getTfAwayAvg4() {
+		return tfAwayAvg4;	
+	}
+	
 	public static JTextField getTfAwayBatter5() {
 		return tfAwayBatter5;
 	}
@@ -349,7 +353,7 @@ public class GUI{
 		tfAwayBatter6.setText(string);
 	}
 
-	public JTextField getTfAwayAvg6() {
+	public static JTextField getTfAwayAvg6() {
 		return tfAwayAvg6;
 	}
 
@@ -366,7 +370,7 @@ public class GUI{
 		tfAwayBatter7.setText(string);
 	}
 
-	public JTextField getTfAwayAvg7() {
+	public static JTextField getTfAwayAvg7() {
 		return tfAwayAvg7;
 	}
 
@@ -383,7 +387,7 @@ public class GUI{
 		tfAwayBatter8.setText(string);
 	}
 
-	public JTextField getTfAwayAvg8() {
+	public static JTextField getTfAwayAvg8() {
 		return tfAwayAvg8;
 	}
 
@@ -400,7 +404,7 @@ public class GUI{
 		tfAwayPitcher.setText(string);
 	}
 
-	public JTextField getTfAwayERA() {
+	public static JTextField getTfAwayERA() {
 		return tfAwayERA;
 	}
 
@@ -432,7 +436,7 @@ public class GUI{
 		tfHomeBatter1.setText(string);
 	}
 
-	public JTextField getTfHomeAvg1() {
+	public static JTextField getTfHomeAvg1() {
 		return tfHomeAvg1;
 	}
 
@@ -448,7 +452,7 @@ public class GUI{
 		tfHomeBatter2.setText(string);
 	}
 
-	public JTextField getTfHomeAvg2() {
+	public static JTextField getTfHomeAvg2() {
 		return tfHomeAvg2;
 	}
 
@@ -464,7 +468,7 @@ public class GUI{
 		tfHomeBatter3.setText(string);
 	}
 
-	public JTextField getTfHomeAvg3() {
+	public static JTextField getTfHomeAvg3() {
 		return tfHomeAvg3;
 	}
 
@@ -480,7 +484,7 @@ public class GUI{
 		tfHomeBatter4.setText(string);
 	}
 
-	public JTextField getTfHomeAvg4() {
+	public static JTextField getTfHomeAvg4() {
 		return tfHomeAvg4;
 	}
 
@@ -496,7 +500,7 @@ public class GUI{
 		tfHomeBatter5.setText(string);
 	}
 
-	public JTextField getTfHomeAvg5() {
+	public static JTextField getTfHomeAvg5() {
 		return tfHomeAvg5;
 	}
 
@@ -512,7 +516,7 @@ public class GUI{
 		tfHomeBatter6.setText(string);
 	}
 
-	public JTextField getTfHomeAvg6() {
+	public static JTextField getTfHomeAvg6() {
 		return tfHomeAvg6;
 	}
 
@@ -528,7 +532,7 @@ public class GUI{
 		tfHomeBatter7.setText(string);
 	}
 
-	public JTextField getTfHomeAvg7() {
+	public static JTextField getTfHomeAvg7() {
 		return tfHomeAvg7;
 	}
 
@@ -544,7 +548,7 @@ public class GUI{
 		tfHomeBatter8.setText(string);
 	}
 
-	public JTextField getTfHomeAvg8() {
+	public static JTextField getTfHomeAvg8() {
 		return tfHomeAvg8;
 	}
 
@@ -560,7 +564,7 @@ public class GUI{
 		tfHomePitcher.setText(string);
 	}
 
-	public JTextField getTfHomeERA() {
+	public static JTextField getTfHomeERA() {
 		return tfHomeERA;
 	}
 
@@ -1631,6 +1635,7 @@ public class GUI{
 		tfAwayAvg1.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		tfAwayAvg1.setColumns(10);
 		tfAwayAvg1.setBounds(321, 118, 64, 34);
+		tfAwayAvg1.setBackground(Color.RED);
 		awayPanel.add(tfAwayAvg1);
 		
 		JLabel lblAwayBattingAvg = new JLabel("Batting Avg");
@@ -1657,6 +1662,7 @@ public class GUI{
 		tfAwayAvg2.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		tfAwayAvg2.setColumns(10);
 		tfAwayAvg2.setBounds(321, 163, 64, 34);
+		tfAwayAvg2.setBackground(Color.RED);
 		awayPanel.add(tfAwayAvg2);
 		
 		tfAwayBatter3 = new JTextField();
@@ -1673,6 +1679,7 @@ public class GUI{
 		tfAwayAvg3.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		tfAwayAvg3.setColumns(10);
 		tfAwayAvg3.setBounds(321, 206, 64, 34);
+		tfAwayAvg3.setBackground(Color.RED);
 		awayPanel.add(tfAwayAvg3);
 		
 		tfAwayBatter4 = new JTextField();
@@ -1689,6 +1696,7 @@ public class GUI{
 		tfAwayAvg4.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		tfAwayAvg4.setColumns(10);
 		tfAwayAvg4.setBounds(321, 251, 64, 34);
+		tfAwayAvg4.setBackground(Color.RED);
 		awayPanel.add(tfAwayAvg4);
 		
 		tfAwayBatter5 = new JTextField();
@@ -1705,6 +1713,7 @@ public class GUI{
 		tfAwayAvg5.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		tfAwayAvg5.setColumns(10);
 		tfAwayAvg5.setBounds(321, 296, 64, 34);
+		tfAwayAvg5.setBackground(Color.RED);
 		awayPanel.add(tfAwayAvg5);
 		
 		tfAwayBatter6 = new JTextField();
@@ -1721,6 +1730,7 @@ public class GUI{
 		tfAwayAvg6.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		tfAwayAvg6.setColumns(10);
 		tfAwayAvg6.setBounds(321, 341, 64, 34);
+		tfAwayAvg6.setBackground(Color.RED);
 		awayPanel.add(tfAwayAvg6);
 		
 		tfAwayBatter7 = new JTextField();
@@ -1737,6 +1747,7 @@ public class GUI{
 		tfAwayAvg7.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		tfAwayAvg7.setColumns(10);
 		tfAwayAvg7.setBounds(321, 386, 64, 34);
+		tfAwayAvg7.setBackground(Color.RED);
 		awayPanel.add(tfAwayAvg7);
 		
 		tfAwayBatter8 = new JTextField();
@@ -1753,6 +1764,7 @@ public class GUI{
 		tfAwayAvg8.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		tfAwayAvg8.setColumns(10);
 		tfAwayAvg8.setBounds(321, 431, 64, 34);
+		tfAwayAvg8.setBackground(Color.RED);
 		awayPanel.add(tfAwayAvg8);
 		
 		tfAwayPitcher = new JTextField();
@@ -1769,6 +1781,7 @@ public class GUI{
 		tfAwayERA.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		tfAwayERA.setColumns(10);
 		tfAwayERA.setBounds(304, 507, 81, 34);
+		tfAwayERA.setBackground(Color.RED);
 		awayPanel.add(tfAwayERA);
 		
 		lblAwayPitcherName = new JLabel("Pitcher Name");
@@ -1978,6 +1991,7 @@ public class GUI{
 		tfHomeAvg1.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		tfHomeAvg1.setColumns(10);
 		tfHomeAvg1.setBounds(316, 118, 64, 34);
+		tfHomeAvg1.setBackground(Color.RED);
 		homePanel.add(tfHomeAvg1);
 		
 		JLabel lblHomeBattingAvg = new JLabel("Batting Avg");
@@ -2004,6 +2018,7 @@ public class GUI{
 		tfHomeAvg2.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		tfHomeAvg2.setColumns(10);
 		tfHomeAvg2.setBounds(316, 163, 64, 34);
+		tfHomeAvg2.setBackground(Color.RED);
 		homePanel.add(tfHomeAvg2);
 		
 		tfHomeBatter3 = new JTextField();
@@ -2020,6 +2035,7 @@ public class GUI{
 		tfHomeAvg3.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		tfHomeAvg3.setColumns(10);
 		tfHomeAvg3.setBounds(316, 206, 64, 34);
+		tfHomeAvg3.setBackground(Color.RED);
 		homePanel.add(tfHomeAvg3);
 		
 		tfHomeBatter4 = new JTextField();
@@ -2036,6 +2052,7 @@ public class GUI{
 		tfHomeAvg4.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		tfHomeAvg4.setColumns(10);
 		tfHomeAvg4.setBounds(316, 251, 64, 34);
+		tfHomeAvg4.setBackground(Color.RED);
 		homePanel.add(tfHomeAvg4);
 		
 		tfHomeBatter5 = new JTextField();
@@ -2052,6 +2069,7 @@ public class GUI{
 		tfHomeAvg5.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		tfHomeAvg5.setColumns(10);
 		tfHomeAvg5.setBounds(316, 296, 64, 34);
+		tfHomeAvg5.setBackground(Color.RED);
 		homePanel.add(tfHomeAvg5);
 		
 		tfHomeBatter6 = new JTextField();
@@ -2068,6 +2086,7 @@ public class GUI{
 		tfHomeAvg6.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		tfHomeAvg6.setColumns(10);
 		tfHomeAvg6.setBounds(316, 341, 64, 34);
+		tfHomeAvg6.setBackground(Color.RED);
 		homePanel.add(tfHomeAvg6);
 		
 		tfHomeBatter7 = new JTextField();
@@ -2084,6 +2103,7 @@ public class GUI{
 		tfHomeAvg7.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		tfHomeAvg7.setColumns(10);
 		tfHomeAvg7.setBounds(316, 386, 64, 34);
+		tfHomeAvg7.setBackground(Color.RED);
 		homePanel.add(tfHomeAvg7);
 		
 		tfHomeBatter8 = new JTextField();
@@ -2100,6 +2120,7 @@ public class GUI{
 		tfHomeAvg8.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		tfHomeAvg8.setColumns(10);
 		tfHomeAvg8.setBounds(316, 431, 64, 34);
+		tfHomeAvg8.setBackground(Color.RED);
 		homePanel.add(tfHomeAvg8);
 		
 		tfHomePitcher = new JTextField();
@@ -2116,6 +2137,7 @@ public class GUI{
 		tfHomeERA.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		tfHomeERA.setColumns(10);
 		tfHomeERA.setBounds(298, 507, 82, 34);
+		tfHomeERA.setBackground(Color.RED);
 		homePanel.add(tfHomeERA);
 		
 		JLabel lblHomePitcherName = new JLabel("Pitcher Name");

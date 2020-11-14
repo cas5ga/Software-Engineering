@@ -7,6 +7,7 @@ in a baseball game are written in this class*/
 /////////////////////////////////////////////////////////////////////
 import java.security.SecureRandom;
 import java.util.ArrayList;
+import java.awt.Color;
 
 public class BaseballGame{
 
@@ -882,31 +883,85 @@ public class BaseballGame{
          
       
          GUI.setTfHomeERA(era);//Setting the home era
+         if(Double.parseDouble(era) < 4) {
+      	   GUI.getTfHomeERA().setBackground(Color.RED);
+         }
+         else {
+      	   GUI.getTfHomeERA().setBackground(Color.GREEN);
+         }
       
          switch(away.getMarker()) {//Setting the away batting average
             case 1:
                GUI.setTfAwayAvg8(ba);
+               if(Double.parseDouble(ba) < 0.25) {
+            	   GUI.getTfAwayAvg8().setBackground(Color.RED);
+               }
+               else {
+            	   GUI.getTfAwayAvg8().setBackground(Color.GREEN);
+               }
                break;
             case 2:
                GUI.setTfAwayAvg1(ba);
+               if(Double.parseDouble(ba) < 0.25) {
+            	   GUI.getTfAwayAvg1().setBackground(Color.RED);
+               }
+               else {
+            	   GUI.getTfAwayAvg1().setBackground(Color.GREEN);
+               }
                break;
             case 3:
                GUI.setTfAwayAvg2(ba);
+               if(Double.parseDouble(ba) < 0.25) {
+            	   GUI.getTfAwayAvg2().setBackground(Color.RED);
+               }
+               else {
+            	   GUI.getTfAwayAvg2().setBackground(Color.GREEN);
+               }
                break;
             case 4:
                GUI.setTfAwayAvg3(ba);
+               if(Double.parseDouble(ba) < 0.25) {
+            	   GUI.getTfAwayAvg3().setBackground(Color.RED);
+               }
+               else {
+            	   GUI.getTfAwayAvg3().setBackground(Color.GREEN);
+               }
                break;
             case 5:
                GUI.setTfAwayAvg4(ba);
+               if(Double.parseDouble(ba) < 0.25) {
+            	   GUI.getTfAwayAvg4().setBackground(Color.RED);
+               }
+               else {
+            	   GUI.getTfAwayAvg4().setBackground(Color.GREEN);
+               }
                break;
             case 6:
                GUI.setTfAwayAvg5(ba);
+               if(Double.parseDouble(ba) < 0.25) {
+            	   GUI.getTfAwayAvg5().setBackground(Color.RED);
+               }
+               else {
+            	   GUI.getTfAwayAvg5().setBackground(Color.GREEN);
+               }
                break;
             case 7:
                GUI.setTfAwayAvg6(ba);
+               if(Double.parseDouble(ba) < 0.25) {
+            	   GUI.getTfAwayAvg6().setBackground(Color.RED);
+               }
+               else {
+            	   GUI.getTfAwayAvg6().setBackground(Color.GREEN);
+               }
                break;
             case 8:
                GUI.setTfAwayAvg7(ba);
+               if(Double.parseDouble(ba) < 0.25) {
+            	   GUI.getTfAwayAvg7().setBackground(Color.RED);
+               }
+               else {
+            	   GUI.getTfAwayAvg7().setBackground(Color.GREEN);
+               }
                break;
          }
       } else {
@@ -928,31 +983,85 @@ public class BaseballGame{
          }
       
          GUI.setTfAwayERA(era);//Setting the away era
+         if(Double.parseDouble(era) < 4) {
+        	   GUI.getTfAwayERA().setBackground(Color.RED);
+           }
+           else {
+        	   GUI.getTfAwayERA().setBackground(Color.GREEN);
+           }
       
          switch(home.getMarker()) {//Setting the home batting avg
             case 1:
                GUI.setTfHomeAvg8(ba);
+               if(Double.parseDouble(ba) < 0.25) {
+            	   GUI.getTfHomeAvg8().setBackground(Color.RED);
+               }
+               else {
+            	   GUI.getTfHomeAvg8().setBackground(Color.GREEN);
+               }
                break;
             case 2:
                GUI.setTfHomeAvg1(ba);
+               if(Double.parseDouble(ba) < 0.25) {
+            	   GUI.getTfHomeAvg1().setBackground(Color.RED);
+               }
+               else {
+            	   GUI.getTfHomeAvg1().setBackground(Color.GREEN);
+               }
                break;
             case 3:
                GUI.setTfHomeAvg2(ba);
+               if(Double.parseDouble(ba) < 0.25) {
+            	   GUI.getTfHomeAvg2().setBackground(Color.RED);
+               }
+               else {
+            	   GUI.getTfHomeAvg2().setBackground(Color.GREEN);
+               }
                break;
             case 4:
                GUI.setTfHomeAvg3(ba);
+               if(Double.parseDouble(ba) < 0.25) {
+            	   GUI.getTfHomeAvg3().setBackground(Color.RED);
+               }
+               else {
+            	   GUI.getTfHomeAvg3().setBackground(Color.GREEN);
+               }
                break;
             case 5:
                GUI.setTfHomeAvg4(ba);
+               if(Double.parseDouble(ba) < 0.25) {
+            	   GUI.getTfHomeAvg4().setBackground(Color.RED);
+               }
+               else {
+            	   GUI.getTfHomeAvg4().setBackground(Color.GREEN);
+               }
                break;
             case 6:
                GUI.setTfHomeAvg5(ba);
+               if(Double.parseDouble(ba) < 0.25) {
+            	   GUI.getTfHomeAvg5().setBackground(Color.RED);
+               }
+               else {
+            	   GUI.getTfHomeAvg5().setBackground(Color.GREEN);
+               }
                break;
             case 7:
                GUI.setTfHomeAvg6(ba);
+               if(Double.parseDouble(ba) < 0.25) {
+            	   GUI.getTfHomeAvg6().setBackground(Color.RED);
+               }
+               else {
+            	   GUI.getTfHomeAvg6().setBackground(Color.GREEN);
+               }
                break;
             case 8:
                GUI.setTfHomeAvg7(ba);
+               if(Double.parseDouble(ba) < 0.25) {
+            	   GUI.getTfHomeAvg7().setBackground(Color.RED);
+               }
+               else {
+            	   GUI.getTfHomeAvg7().setBackground(Color.GREEN);
+               }
                break;
          }
       }
