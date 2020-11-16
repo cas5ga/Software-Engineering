@@ -8,6 +8,8 @@ Several print methods as well as an array of baseball players arein
 this class*/
 /////////////////////////////////////////////////////////////////////
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Scanner;
 
 public class BaseballTeam{
 
@@ -64,11 +66,6 @@ public class BaseballTeam{
       }
    }
    
-   //gets a batter based on their position on the team (batter number)
-   public Batter getSpecificBatter(int num) {
-	   return (Batter) roster.get(num);
-   }
-   
    public Batter getPreviousBatter(){
 	      if(marker - 2 != -1 && marker != 10){
 	         return (Batter) roster.get(marker - 2);
@@ -92,6 +89,52 @@ public class BaseballTeam{
 		   marker = 8;
 	   }
    }
+   
+   //read away team file
+   public void FileTeamSet(String FileName)
+   {
+	   String line;
+	   int counter = 0; //keeps track of how many players have been created, and how many times it have gone through the loop
+
+	   		
+	   //this always the program to read the file
+	   Scanner T = new Scanner(FileName);	        
+		   
+	   //Creates an object for the players to be stored in after they are created in order to add the players to the roster  
+	   ArrayList<BaseballPlayer> team = new ArrayList<BaseballPlayer>(9);
+		   
+		   while(counter < 8){ //Continues through the loop until there are 8 batters, then breaks out and added the pitcher
+			   
+			   line = T.nextLine(); //Moves to the next line in the file
+			   String[] values = line.split(" "); //Splits the line from the file up into separate parts
+			   
+			 //Creates a batter with first name,last name, position, at bats, hits, doubles, triples, home runs, walks, sac flies, runs scored, runs batted in, and strike outs
+			   Batter newBatter = new Batter(values[0], values[1], values[2] ,Integer.parseInt(values[3]),  Integer.parseInt(values[4]), Integer.parseInt(values[5]), 
+					   Integer.parseInt(values[6]), Integer.parseInt(values[7]),
+					   Integer.parseInt(values[8]), Integer.parseInt(values[9]), Integer.parseInt(values[10]), Integer.parseInt(values[11]), Integer.parseInt(values[12])); 
+			   
+			   team.add(newBatter);//Added the new batter to the team array
+
+			   //keeps track of what player it is and when to stop looping in order to correctly store the pitcher
+			   counter = counter + 1;
+			   }
+		   
+		   line = T.nextLine(); //Moves to the next line in the file
+		   
+		   String[] values = line.split(" ");//Splits the line from the file up into separate parts
+		   
+		   //Creates a new pitcher with first name, last name, position, earned runs, outs, and innings pitched
+		   Pitcher newPitcher = new Pitcher(values[0], values[1], values[2], Integer.parseInt(values[3]),  Integer.parseInt(values[4]),Integer.parseInt(values[5]));
+		   
+		   team.add(newPitcher);//Adds pitcher to the team
+		   
+		   T.close();//closes the scanner that reads the file 
+		   
+		   if(team.size() == 9) {
+			   roster = team; //Adds the team to the roster if it is a full team, else there is no new team created
+		   }
+	            
+	   }
    
    public void importPlayer(BaseballPlayer p, int team, int playerNum){
 	  switch(team){
