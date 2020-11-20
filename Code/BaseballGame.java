@@ -5,6 +5,8 @@
 /*This class is the baseball game class. All actions that can occur
 in a baseball game are written in this class*/
 /////////////////////////////////////////////////////////////////////
+import java.io.FileWriter;
+import java.io.IOException;
 import java.security.SecureRandom;
 import java.util.ArrayList;
 
@@ -978,7 +980,7 @@ public class BaseballGame{
          }
       
          getNextPlayUpdateStats();//Getting the next play and updating the batter stats
-      
+         
       } else {//Occurs when a half inning just started
       
          GUI.setTfPreviousPlayBatter(" ");
@@ -1043,6 +1045,86 @@ public class BaseballGame{
       } else {
          return away;
       }
+   }
+   
+   //saves team data to a text file
+   public static void saveTeam(boolean isHome) {
+	   try {
+		   FileWriter myWriter;
+		   
+		   //chooses filename based on which team is being printed
+		   if(isHome) {
+			   myWriter = new FileWriter("hometeam.txt");
+		   }
+		   else {
+			   myWriter = new FileWriter("awayteam.txt");
+		   }
+		   
+		   for(int i = 0; i < 8; i++) {
+			   //retrieves batter data
+			   Batter player = new Batter();
+			   if(isHome) {
+				   player = (Batter)home.getRoster().get(i);
+			   }
+			   else {
+				   player = (Batter)away.getRoster().get(i);
+			   }
+			   
+			   //writes batter data
+			   myWriter.write(player.firstName);
+			   myWriter.write(' ');
+			   myWriter.write(player.lastName);
+			   myWriter.write(' ');
+			   myWriter.write(player.position);
+			   myWriter.write(' ');
+			   myWriter.write(String.valueOf(player.getAtBats()));
+			   myWriter.write(' ');
+			   myWriter.write(String.valueOf(player.getHits()));
+			   myWriter.write(' ');
+			   myWriter.write(String.valueOf(player.getDoubles()));
+			   myWriter.write(' ');
+			   myWriter.write(String.valueOf(player.getTriples()));
+			   myWriter.write(' ');
+			   myWriter.write(String.valueOf(player.getHomers()));
+			   myWriter.write(' ');
+			   myWriter.write(String.valueOf(player.getWalks()));
+			   myWriter.write(' ');
+			   myWriter.write(String.valueOf(player.getSacFlies()));
+			   myWriter.write(' ');
+			   myWriter.write(String.valueOf(player.getRunsScored()));
+			   myWriter.write(' ');
+			   myWriter.write(String.valueOf(player.getRunsBattedIn()));
+			   myWriter.write(' ');
+			   myWriter.write(String.valueOf(player.getStrikeouts()));
+			   myWriter.write('\n');
+		   }
+		   
+		   //retrieves pitcher data
+		   Pitcher player = new Pitcher("","","");
+		   if(isHome) {
+			   player = (Pitcher)home.getRoster().get(8);
+		   }
+		   else {
+			   player = (Pitcher)away.getRoster().get(8);
+		   }
+		   
+		   //writes pitcher data
+		   myWriter.write(player.firstName);
+		   myWriter.write(' ');
+		   myWriter.write(player.lastName);
+		   myWriter.write(' ');
+		   myWriter.write(player.position);
+		   myWriter.write(' ');
+		   myWriter.write(String.valueOf(player.getEarnedRuns()));
+		   myWriter.write(' ');
+		   myWriter.write(String.valueOf(player.getOuts()));
+		   myWriter.write(' ');
+		   myWriter.write(String.valueOf(player.getInningsPitched()));
+		   
+		   myWriter.close();
+	   } catch (IOException e) {
+		   e.printStackTrace();
+	   }
    }
      ////////////////////////////////////////////////////////////////////////////////
     /////////////////////////// END MISC METHODS ///////////////////////////////////
